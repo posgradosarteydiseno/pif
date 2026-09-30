@@ -1,0 +1,1045 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Proyecto de Innovación Final (PIF) de los posgrados de la Escuela de Arte y Diseño de la UDEM: qué es, tipos de proyecto, roles y calendario.">
+<style>:root{color-scheme:light}body{margin:0;font-family:system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>PIF Posgrados Arte y Diseño</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Caveat:wght@600&display=swap">
+<style>
+/* Layout: banda amarilla institucional arriba, formulario de una columna con tablas de rúbrica y barra de puntaje fija abajo */
+:root{
+  --bg:#ffffff; --surface:#ffffff; --soft:#f6f5ef; --fg:#1f1f1d; --muted:#6b6a63; --line:#333333; --hair:#d9d7cc;
+  --dark:#333333; --on-dark:#ffffff; --yel:#fff500; --on-yel:#111111; --pale:#fffbd1;
+  --band1:#fef270; --band2:#fade70; --ok:#1f7a3d; --okbg:#dcf3e2; --warn:#8a5a00; --warnbg:#fff1c7; --bad:#a1261c; --badbg:#fde2de;
+  --font:"Poppins",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#161614; --surface:#1f1f1c; --soft:#262622; --fg:#efeee8; --muted:#a8a69c; --line:#77756c; --hair:#3a3934;
+  --dark:#0e0e0c; --on-dark:#ffffff; --pale:#2d2b17; --ok:#7fd69a; --okbg:#173522; --warn:#f2c35b; --warnbg:#3a2f10; --bad:#ff9a8d; --badbg:#3d1a16; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#161614; --surface:#1f1f1c; --soft:#262622; --fg:#efeee8; --muted:#a8a69c; --line:#77756c; --hair:#3a3934;
+  --dark:#0e0e0c; --on-dark:#ffffff; --pale:#2d2b17; --ok:#7fd69a; --okbg:#173522; --warn:#f2c35b; --warnbg:#3a2f10; --bad:#ff9a8d; --badbg:#3d1a16; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:14px;line-height:1.5}
+.band{background:linear-gradient(90deg,var(--band1),var(--band2));color:var(--on-yel);padding-block:28px 22px;padding-inline:16px}
+.band-in{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.band h1{margin:0;font-size:clamp(26px,5vw,40px);font-weight:700;letter-spacing:.01em;line-height:1.05;text-wrap:balance}
+.band p{margin:6px 0 0;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.udem{background:#433f38;color:#fff;font-weight:700;padding:6px 12px;font-size:15px;letter-spacing:.04em}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:16px;padding-block:20px 120px}
+nav.tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);margin-bottom:18px;flex-wrap:wrap}
+nav.tabs button{font:inherit;font-weight:600;border:0;background:transparent;color:var(--muted);padding:10px 14px;cursor:pointer;border-bottom:4px solid transparent;margin-bottom:-2px}
+nav.tabs button[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--yel)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.lvl:focus-within{outline:3px solid #2a6bd6;outline-offset:2px}
+.notice{border:1px solid var(--line);background:var(--warnbg);color:var(--fg);padding:10px 12px;margin-bottom:16px;font-size:13px}
+.notice[data-kind="info"]{background:var(--soft)}
+h2{font-size:20px;margin:26px 0 10px;font-weight:600}
+.mark{background:var(--yel);color:var(--on-yel);padding:1px 6px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+input,select,textarea{font:inherit;font-size:14px;text-transform:none;letter-spacing:0;font-weight:400;color:var(--fg);background:var(--surface);border:1px solid var(--line);padding:9px 10px;border-radius:0;width:100%;min-width:0}
+textarea{min-height:90px;resize:vertical}
+.btn{font:inherit;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:9px 16px;cursor:pointer}
+.btn.primary{background:var(--dark);color:var(--on-dark);border-color:var(--dark)}
+.btn.yel{background:var(--yel);color:var(--on-yel);border-color:var(--line)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.row>label.f{flex:1 1 260px}
+.who{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 12px;border:1px solid var(--line);background:var(--pale)}
+.roles{display:flex;gap:8px;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);padding:8px 12px;cursor:pointer;background:var(--surface);font-weight:500}
+.chip input{width:auto;margin:0;accent-color:#333}
+.chip:has(input:checked){background:var(--yel);color:var(--on-yel)}
+.chip:has(input:disabled){cursor:default}
+.chip:has(input:disabled:not(:checked)){opacity:.4}
+table{border-collapse:collapse;width:100%}
+.tscroll{overflow-x:auto;border:1px solid var(--line)}
+th,td{border:1px solid var(--line);padding:8px;vertical-align:top;text-align:left}
+thead th{background:var(--dark);color:var(--on-dark);font-size:11px;letter-spacing:.05em;text-transform:uppercase;text-align:center}
+.blockhead{margin:22px 0 8px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:baseline}
+.blockhead .pts{font-variant-numeric:tabular-nums;font-weight:600}
+.crit{border:1px solid var(--line);margin-bottom:-1px;background:var(--surface)}
+.crit-h{display:flex;justify-content:space-between;gap:10px;padding:10px 12px;background:var(--pale);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.crit-h b{font-size:15px}
+.crit-h .que{display:block;font-size:12px;color:var(--muted);font-style:italic;max-width:70ch}
+.crit-h .score{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;align-self:flex-start}
+.levels{display:grid;grid-template-columns:110px repeat(4,minmax(0,1fr))}
+.lvl{position:relative;display:flex;flex-direction:column;gap:4px;padding:10px;border-right:1px solid var(--hair);cursor:pointer;font-size:12.5px;line-height:1.4}
+.lvl:last-child{border-right:0}
+.lvl input{position:absolute;opacity:0;pointer-events:none}
+.lvl .lh{display:flex;align-items:center;gap:6px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+.box{width:16px;height:16px;border:1.5px solid var(--line);display:inline-grid;place-items:center;flex:none;background:var(--surface)}
+.lvl:hover{background:var(--soft)}
+.lvl:has(input:checked){background:var(--yel);color:var(--on-yel)}
+.lvl:has(input:checked) .box{background:var(--dark);border-color:var(--dark)}
+.lvl:has(input:checked) .box::after{content:"";width:8px;height:4px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+.lvl.zero{justify-content:center;color:var(--muted)}
+.checks{display:grid;gap:0}
+.checks label{display:flex;gap:10px;align-items:center;padding:9px 12px;border:1px solid var(--line);margin-bottom:-1px;cursor:pointer;background:var(--surface)}
+.checks input{width:18px;height:18px;flex:none;accent-color:#333}
+.bar{position:fixed;left:0;right:0;bottom:0;background:var(--dark);color:var(--on-dark);padding-inline:16px;padding-block:10px calc(10px + env(safe-area-inset-bottom,0px));z-index:5}
+.bar-in{max-width:1080px;margin:0 auto;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.bar .big{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums}
+.bar small{opacity:.8}
+.pill{display:inline-block;padding:2px 8px;font-size:12px;font-weight:600;border:1px solid currentColor;white-space:nowrap}
+.pill.ok{color:var(--ok);background:var(--okbg)} .pill.warn{color:var(--warn);background:var(--warnbg)} .pill.bad{color:var(--bad);background:var(--badbg)} .pill.muted{color:var(--muted)}
+.bar .pill{border-color:#fff}
+.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.res td,.res th{font-size:13px}
+.res tbody tr.main{cursor:pointer}
+.res tbody tr.main:hover{background:var(--soft)}
+.res th:first-child{text-align:left}
+.detail td{background:var(--soft)}
+.muted{color:var(--muted)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:84px;background:var(--yel);color:var(--on-yel);border:1px solid var(--line);padding:8px 14px;font-weight:600;z-index:6}
+.empty{border:1px dashed var(--line);padding:18px;color:var(--muted);background:var(--soft)}
+.formula{font-size:12px;color:var(--muted);margin-top:8px}
+
+
+
+
+/* ---------- ¿Qué es el PIF? */
+.about{background:var(--bg);color:var(--fg);padding-inline:16px;padding-block:56px 120px;border-top:6px solid var(--yel)}
+body.in .about{padding-top:8px;border-top:0}
+.about-in{max-width:1080px;margin:0 auto}
+.about-eyebrow{margin:0 0 6px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.about h2{margin:0;font-size:clamp(32px,5vw,56px);line-height:1;font-weight:700;letter-spacing:-.025em}
+.aka{display:inline-block;margin:14px 0 0;background:var(--yel);color:var(--on-yel);padding:6px 12px;font-size:13.5px}
+.about-lead{margin:26px 0 0;max-width:62ch;font-size:clamp(17px,2vw,21px);line-height:1.55}
+.about-h{margin:44px 0 14px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.type{border:2px solid var(--line);padding:18px;background:var(--surface);display:flex;flex-direction:column;gap:6px}
+.type-n{width:36px;height:36px;display:grid;place-items:center;background:var(--dark);color:var(--yel);font-weight:700}
+.type h4{margin:6px 0 0;font-size:17px}
+.type p{margin:0;color:var(--muted);font-size:13.5px}
+.journey{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:3px solid var(--line)}
+.journey li{position:relative;padding:22px 16px 0 0;display:flex;flex-direction:column;gap:4px}
+.journey li::before{content:"";position:absolute;top:-10px;left:0;width:16px;height:16px;background:var(--surface);border:3px solid var(--line)}
+.journey li.hl::before{background:var(--yel)}
+.journey li.dark::before{background:var(--dark)}
+.j-when{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.journey b{font-size:17px}
+.journey p{margin:0;font-size:13px;color:var(--muted);max-width:32ch}
+.about-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
+.about-cols p{margin:0 0 8px;color:var(--muted)}
+.incl{margin:0;padding:0;list-style:none;display:grid;gap:0}
+.incl li{padding:10px 0 10px 28px;border-bottom:1px solid var(--hair);position:relative}
+.incl li::before{content:"";position:absolute;left:0;top:15px;width:12px;height:12px;background:var(--yel);border:2px solid var(--line)}
+@media (max-width:760px){.types,.about-cols{grid-template-columns:1fr}.journey{grid-template-columns:1fr;border-top:0;border-left:3px solid var(--line);margin-left:8px}.journey li{padding:0 0 22px 22px}.journey li::before{top:2px;left:-10px}}
+
+
+.roles-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.rcard{border:2px solid var(--line);background:var(--surface);padding:18px 20px;display:flex;flex-direction:column}
+.rcard header{display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
+.rtag{align-self:flex-start;background:var(--dark);color:var(--yel);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px}
+.rcard h4{margin:0;font-size:18px}
+.rcard ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted);font-size:13.5px}
+.rcard ul li::marker{color:var(--fg)}
+.rw{margin:auto 0 0;padding-top:12px;border-top:1px solid var(--hair);font-size:13.5px}
+@media (max-width:760px){.roles-grid{grid-template-columns:1fr}}
+/* ---------- Portada v2: panel negro + panel amarillo */
+.hero2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);min-height:100vh;min-height:100dvh}
+body.in .hero2{display:none}
+.h2-dark{position:relative;overflow:hidden;background:#111111;color:#f4f2e8;padding:clamp(20px,4vw,56px) clamp(16px,4vw,56px);display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.h2-light{background:linear-gradient(165deg,var(--band1),var(--band2));color:#111111;padding:clamp(20px,4vw,56px) clamp(16px,4vw,56px);display:flex;flex-direction:column;justify-content:center;gap:22px}
+.h2-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.about-link{align-self:flex-start;color:#fff500;font-weight:600;font-size:14px;text-decoration:none;border-bottom:1.5px solid #fff500;padding-bottom:2px}
+.about-link:hover{color:#ffffff;border-color:#ffffff}
+.snav{display:flex;gap:6px;flex-wrap:wrap;margin-top:-6px}
+.snav a,.snav .soon{font-size:13px;font-weight:600;padding:7px 12px;border:1.5px solid #3a3934;color:#f4f2e8;text-decoration:none}
+.snav a:hover{border-color:#fff500;color:#fff500}
+.snav .soon{color:#8a887f;border-style:dashed}
+.snav small{font-weight:400;font-size:11px}
+.term2{border:1.5px solid #fff500;color:#fff500;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px}
+.mega{font-size:clamp(110px,17vw,250px);font-weight:700;line-height:.78;letter-spacing:-.06em;color:#fff500;margin-left:-.04em}
+.hero2 h1{margin:18px 0 0;font-size:clamp(26px,3.3vw,44px);line-height:1.05;font-weight:700;letter-spacing:-.015em;max-width:15ch;text-wrap:balance;color:#ffffff}
+.yl{color:#fff500}
+.lede2{margin:14px 0 0;max-width:40ch;font-size:15px;line-height:1.5;color:#c9c7bd}
+.count{display:flex;align-items:baseline;gap:12px;border-top:1px solid #3a3934;padding-top:16px}
+.count-n{font-size:clamp(44px,5vw,64px);font-weight:700;line-height:1;color:#fff500;font-variant-numeric:tabular-nums}
+.count-t{font-size:14px;color:#c9c7bd;max-width:22ch}
+.scale{margin:0}
+.bars{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;align-items:end;height:clamp(90px,14vh,150px)}
+.bar{height:var(--h);background:#2c2b27;border-top:3px solid #fff500;position:relative;transform-origin:bottom;animation:rise .7s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d)}
+.bar.top{background:#fff500}
+.bar span{position:absolute;left:8px;top:6px;font-weight:700;font-size:15px;color:#fff500}
+.bar.top span{color:#111111}
+.blabels{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:8px;font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:#9d9b91}
+@keyframes rise{from{transform:scaleY(.04)}to{transform:scaleY(1)}}
+.h2-light .access{max-width:none;width:100%}
+.tl{display:grid;gap:8px}
+.tl-item{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 14px;border:2px solid #111111;background:rgba(255,255,255,.5)}
+.tl-item b{display:block;font-size:14.5px}
+.tl-item span{font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#3b3a35}
+.tl-item strong{font-size:26px;line-height:1;font-variant-numeric:tabular-nums}
+.tl-dot{width:14px;height:14px;border:2px solid #111111;background:#ffffff}
+.tl-dot.dark{background:#111111}
+.tl-note{margin:2px 0 0;font-size:12px;color:#3b3a35}
+@media (max-width:900px){.hero2{grid-template-columns:1fr}.h2-dark{gap:22px}.mega{font-size:clamp(100px,34vw,180px)}}
+@media (prefers-reduced-motion:reduce){.bar{animation:none}}
+@media (max-width:600px){.scale{display:none}.h2-dark{gap:18px;padding-bottom:26px}.count{padding-top:12px}}
+
+
+/* ---------- Portada estilo claro (lavanda + azul marino + amarillo) */
+.lp{--lp-ink:#1f1d4f;--lp-ink2:#56547e;--lp-lav:#eeecfd;--lp-lav2:#d9d4fb;--lp-violet:#6d62d9;--lp-yel:#ffd84d;--lp-line:#e4e1f3;background:#ffffff;color:var(--lp-ink);padding-bottom:40px}
+body.in .lp{display:none}
+.lp-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1160px;margin:0 auto;padding-inline:16px;padding-block:18px}
+.lp-logo{display:flex;align-items:center;gap:8px}
+.lp-logo b{font-size:19px;letter-spacing:.02em}
+.lp-logo span{font-size:12.5px;color:var(--lp-ink2);border-left:1px solid var(--lp-line);padding-left:8px}
+.lp-links{display:flex;gap:22px;font-size:13.5px;align-items:center}
+.lp-links a{color:var(--lp-ink);text-decoration:none}
+.lp-links a:hover{color:var(--lp-violet)}
+.lp-links .soon{color:#9a98b8;font-size:12.5px}
+.lp-signin{border:1.5px solid var(--lp-ink);border-radius:10px;padding:8px 16px;font-weight:600;font-size:13.5px;color:var(--lp-ink);text-decoration:none}
+.lp-hero{max-width:1160px;margin:0 auto;padding-inline:16px;padding-block:28px 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;background:linear-gradient(180deg,#faf9ff,#ffffff)}
+.lp-eyebrow{margin:0 0 12px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lp-violet)}
+.lp h1{margin:0;font-size:clamp(34px,4.6vw,58px);line-height:1.04;letter-spacing:-.025em;font-weight:700;text-wrap:balance;color:var(--lp-ink)}
+.lp-lede{margin:16px 0 22px;font-size:16px;line-height:1.6;color:var(--lp-ink2);max-width:48ch}
+.lp-access{display:grid;gap:12px;max-width:470px}
+.lp-search{display:flex;align-items:center;gap:8px;background:#ffffff;border:1.5px solid var(--lp-line);border-radius:12px;padding-inline:14px;box-shadow:0 6px 18px rgba(43,40,112,.06)}
+.lp-search:focus-within{border-color:var(--lp-violet);outline:3px solid rgba(109,98,217,.25);outline-offset:1px}
+.lp-search input{border:0;background:transparent;font:inherit;font-size:15px;padding:14px 2px;width:100%;min-width:0;color:var(--lp-ink)}
+.lp-search input:focus-visible{outline:0}
+.lp .domains{color:var(--lp-ink2)}
+.lp .domains button{border:1px solid var(--lp-line);border-radius:99px;background:#ffffff;color:var(--lp-ink);padding:3px 10px}
+.lp .domains button:hover{background:var(--lp-lav)}
+.lp .hello{border:0;border-radius:12px;background:var(--lp-lav);min-height:56px;padding:10px 12px}
+.lp .hello[data-state="ok"]{background:#e6f6ea}
+.lp .hello[data-state="warn"]{background:#fff3e2}
+.lp .hello .av{border-radius:50%;background:var(--lp-ink);color:var(--lp-yel)}
+.lp .go{justify-self:start;border:0;border-radius:12px;background:var(--lp-yel);color:var(--lp-ink);padding:13px 26px;font-size:15px}
+.lp .go:hover{background:#ffcc1f}
+.lp-feats{list-style:none;margin:26px 0 0;padding:0;display:flex;gap:26px;flex-wrap:wrap}
+.lp-feats li{display:flex;gap:8px;align-items:center;font-size:12.5px;line-height:1.25;color:var(--lp-ink2)}
+.lp-art{position:relative}
+.lp-svg{width:100%;height:auto;display:block}
+.lp-float{position:absolute;right:6%;bottom:8%;display:flex;align-items:center;gap:14px;background:#ffffff;border-radius:12px;padding:12px 14px;box-shadow:0 14px 30px rgba(43,40,112,.16)}
+.lp-float b{display:block;font-size:14px}
+.lp-float span{font-size:12px;color:var(--lp-ink2)}
+.lp-float #countN{font-weight:700;color:var(--lp-ink)}
+.lp-play{width:34px;height:34px;border-radius:50%;background:var(--lp-ink);color:#ffffff !important;display:grid;place-items:center;font-size:15px}
+.lp-sec,.lp-band{max-width:1160px;margin:0 auto;padding-inline:16px;padding-block:36px}
+.lp-band{background:var(--lp-lav);border-radius:20px;padding:28px 24px;margin-top:10px;max-width:1128px}
+.lp-sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.lp-sec-h h2{margin:0;font-size:clamp(24px,3vw,32px);letter-spacing:-.015em}
+.lp-sec-h p{margin:4px 0 0;color:var(--lp-ink2)}
+.lp-sec-h a{color:var(--lp-violet);font-weight:600;font-size:13.5px;text-decoration:none}
+.lp-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.lp-card{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:var(--lp-ink);background:#ffffff;border:1px solid var(--lp-line);border-radius:16px;overflow:hidden;padding-bottom:16px;transition:transform .15s,box-shadow .15s}
+.lp-card:hover{transform:translateY(-3px);box-shadow:0 16px 30px rgba(43,40,112,.10)}
+.lp-thumb{background:var(--lp-lav2);aspect-ratio:16/8.5;display:grid;place-items:center;margin-bottom:10px}
+.lp-thumb.t2{background:#fff3c4}.lp-thumb.t3{background:#e3e8ff}
+.lp-thumb svg{width:78%;height:auto}
+.lp-card h3,.lp-card .lp-meta,.lp-card p{margin:0;padding-inline:16px}
+.lp-card h3{font-size:16px}
+.lp-card .lp-meta{font-size:12px;color:#8a88aa}
+.lp-card p{font-size:13.5px;color:var(--lp-ink2);margin-top:4px}
+.lp-paths{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.lp-path{display:grid;grid-template-columns:120px 1fr;gap:16px;background:#ffffff;border-radius:14px;padding:14px;align-items:center}
+.lp-pthumb{aspect-ratio:1;border-radius:12px;background:var(--lp-yel);display:grid;place-items:center}
+.lp-pthumb.dark{background:var(--lp-ink)}
+.lp-pthumb span{font-size:30px;font-weight:700;color:var(--lp-ink)}
+.lp-pthumb.dark span{color:var(--lp-yel)}
+.lp-path h3{margin:0;font-size:17px}
+.lp-path p{margin:4px 0 8px;font-size:13.5px;color:var(--lp-ink2)}
+.lp-link{font-size:12.5px;font-weight:600;color:var(--lp-violet)}
+@media (max-width:900px){
+  .lp-links{display:none}
+  .lp-hero{grid-template-columns:1fr;gap:10px}
+  .lp-cards,.lp-paths{grid-template-columns:1fr}
+  .lp-path{grid-template-columns:84px 1fr}
+  .lp-logo span{display:none}
+}
+@media (prefers-reduced-motion:reduce){.lp-card{transition:none}.lp-card:hover{transform:none}}
+
+.lp-aka{display:inline-block;margin:14px 0 0;background:#eeecfd;color:#1f1d4f;border-radius:99px;padding:6px 14px;font-size:13px}
+.lp h1{font-size:clamp(40px,5.4vw,68px)}
+.lp-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.lp-btn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;background:#ffd84d;color:#1f1d4f;font-weight:600;padding:13px 22px;text-decoration:none;font-size:15px}
+.lp-btn:hover{background:#ffcc1f}
+.lp-btn.ghost{background:#ffffff;border:1.5px solid #1f1d4f}
+.lp-btn.ghost:hover{background:#eeecfd}
+.lp-feats li{gap:10px}
+.lp-feats strong{font-size:28px;line-height:1;color:#6d62d9;font-variant-numeric:tabular-nums}
+.lp-acc-wrap{max-width:1128px;margin:10px auto 0;padding:28px;border-radius:20px;background:#ffffff;border:1px solid #e4e1f3;box-shadow:0 18px 40px rgba(43,40,112,.08);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:start}
+.lp-acc-copy h2{margin:0;font-size:clamp(22px,2.6vw,28px);letter-spacing:-.01em}
+.lp-acc-copy p{color:#56547e;margin:8px 0 0}
+.lp-mini{list-style:none;margin:16px 0 0;padding:0;display:flex;gap:8px;flex-wrap:wrap}
+.lp-mini li{font-size:12px;font-weight:600;background:#eeecfd;color:#2b2870;border-radius:99px;padding:5px 12px}
+.lp-acc-wrap .lp-access{max-width:none}
+body:not(.in) .about-head, body:not(.in) .about-lead{display:none}
+body:not(.in) .about{padding-top:12px}
+@media (max-width:900px){.lp-acc-wrap{grid-template-columns:1fr;margin-inline:16px;padding:20px}}
+/* Apartados "¿Qué es el PIF?" y "Roles" con el mismo estilo claro */
+.about{border-top:0;background:#ffffff;color:#1f1d4f}
+.about-eyebrow{color:#6d62d9}
+.aka{background:#eeecfd;color:#1f1d4f;border-radius:99px;padding:6px 14px}
+.about-lead{color:#1f1d4f}
+.about-h{color:#1f1d4f}
+.type,.rcard{border:1px solid #e4e1f3;border-radius:16px;background:#ffffff;box-shadow:0 8px 20px rgba(43,40,112,.05)}
+.type-n,.rtag{background:#eeecfd;color:#2b2870;border-radius:10px}
+.type-n{border-radius:50%}
+.type p,.rcard ul,.journey p,.about-cols p{color:#56547e}
+.rcard ul li::marker{color:#6d62d9}
+.rw{border-top-color:#e4e1f3;color:#1f1d4f}
+.journey{border-top-color:#d9d4fb}
+.journey li::before{border-radius:50%;border-color:#6d62d9;background:#ffffff}
+.journey li.hl::before{background:#ffd84d}
+.journey li.dark::before{background:#1f1d4f;border-color:#1f1d4f}
+.j-when{color:#6d62d9}
+.incl li{border-bottom-color:#e4e1f3}
+.incl li::before{border-radius:50%;border:0;background:#ffd84d}
+
+/* ---------- Tarjeta de acceso */
+.access{background:#ffffff;color:#111111;border:2px solid var(--on-yel);box-shadow:8px 8px 0 var(--on-yel);padding:20px;max-width:520px;display:grid;gap:14px}
+.access-h{display:flex;gap:12px;align-items:center}
+.access-ic{width:44px;height:44px;flex:none;display:grid;place-items:center;background:var(--band1);border:2px solid var(--on-yel)}
+.access-h b{display:block;font-size:16px}
+.access-h span{font-size:12.5px;color:#55544d}
+.field{display:flex;align-items:center;border:2px solid #111111;background:#ffffff}
+.field svg{flex:none;margin-inline:12px 4px}
+.field input{border:0;font-size:16px;padding:13px 12px 13px 4px;background:transparent;color:#111111}
+.field:focus-within{outline:3px solid #2a6bd6;outline-offset:2px}
+.field input:focus-visible{outline:0}
+.domains{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12px;color:#55544d}
+.domains button{font:inherit;font-size:12px;font-weight:600;border:1.5px solid #111111;background:#ffffff;color:#111111;padding:3px 9px;cursor:pointer}
+.domains button:hover{background:var(--band1)}
+.hello{display:flex;gap:12px;align-items:center;padding:12px;border:1.5px dashed #111111;background:#fffbd1;min-height:66px}
+.hello[data-state="ok"]{border-style:solid;background:#eafbe9}
+.hello[data-state="warn"]{background:#fff1e6}
+.av{width:40px;height:40px;flex:none;display:grid;place-items:center;font-weight:700;font-size:14px;background:#111111;color:var(--band1);letter-spacing:.02em}
+.hello p{margin:0;font-size:13.5px;line-height:1.4}
+.hello p b{font-size:15px}
+.go{font:inherit;font-weight:700;font-size:16px;border:2px solid #111111;background:#111111;color:#ffffff;padding:14px;cursor:pointer;display:flex;justify-content:center;gap:10px;align-items:center}
+.go:hover{background:#000000}
+.go span{transition:transform .15s}
+.go:hover span{transform:translateX(4px)}
+.privacy{display:flex;gap:8px;align-items:flex-start;font-size:12px;color:#55544d;margin:0}
+/* ---------- Panel de bienvenida */
+.welcome{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;padding-block:6px 4px}
+.welcome h2{margin:0;font-size:clamp(24px,4vw,34px);font-weight:700;letter-spacing:-.01em}
+.welcome p{margin:4px 0 0;color:var(--muted)}
+.seg{display:inline-flex;border:2px solid var(--line)}
+.seg button{font:inherit;font-weight:600;border:0;background:var(--surface);color:var(--fg);padding:9px 16px;cursor:pointer}
+.seg button+button{border-left:2px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--yel);color:var(--on-yel)}
+.seg button small{font-weight:400;opacity:.75;margin-left:4px}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 0}
+.filters button{font:inherit;font-size:12.5px;font-weight:600;border:1.5px solid var(--line);background:var(--surface);color:var(--fg);padding:5px 11px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--dark);color:var(--on-dark)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:14px}
+.card{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;text-align:left;font:inherit;color:var(--fg);background:var(--surface);border:2px solid var(--line);padding:14px;cursor:pointer;transition:transform .12s, box-shadow .12s}
+.card:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--line)}
+.card[aria-pressed="true"]{background:var(--pale);box-shadow:6px 6px 0 var(--yel);border-color:var(--line)}
+.card .av{grid-row:1 / span 3}
+.card .nm{font-weight:700;font-size:14.5px;line-height:1.25}
+.card .meta{font-size:12px;color:var(--muted)}
+.card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;grid-column:2}
+.tag{font-size:11px;font-weight:700;letter-spacing:.03em;padding:2px 7px;border:1.5px solid var(--line)}
+.tag.role{background:var(--yel);color:var(--on-yel)}
+.tag.ok{color:var(--ok);background:var(--okbg);border-color:currentColor}
+.tag.draft{color:var(--warn);background:var(--warnbg);border-color:currentColor}
+.tag.pend{color:var(--muted)}
+.picked{margin-top:18px;padding:12px 14px;border-left:6px solid var(--yel);background:var(--soft)}
+@media (prefers-reduced-motion:reduce){.card,.go span{transition:none}.card:hover{transform:none}}
+
+/* ---------- Portada (antes de entrar) */
+.hero{position:relative;overflow:hidden;background:linear-gradient(115deg,var(--band1) 0%,#fde96a 45%,var(--band2) 100%);color:var(--on-yel);padding-inline:16px;padding-block:22px 34px}
+.hero-in{position:relative;z-index:1;max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.hero-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:36px;align-items:end}
+.term{display:inline-block;margin:0 0 14px;background:var(--on-yel);color:var(--band1);font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px}
+.hero h1{margin:0;font-size:clamp(34px,6.4vw,64px);line-height:.98;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,rgba(255,255,255,.75) 62%);padding-inline:2px}
+.lede{margin:16px 0 22px;font-size:16px;max-width:46ch;line-height:1.5}
+.hero-form{display:flex;gap:0;max-width:520px;box-shadow:6px 6px 0 var(--on-yel)}
+.hero-form input{flex:1 1 auto;border:2px solid var(--on-yel);border-right:0;background:#ffffff;color:#111111;font-size:16px;padding:14px 14px}
+.hero-form .btn{border:2px solid var(--on-yel);background:var(--on-yel);color:#ffffff;font-size:15px;padding:14px 20px;white-space:nowrap}
+.hero-form .btn:hover{background:#000000}
+.fine{margin:14px 0 0;font-size:12.5px;max-width:52ch;opacity:.85}
+.err{margin:10px 0 0;font-weight:600}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.stages{display:grid;gap:10px}
+.stage{display:grid;grid-template-columns:1fr auto;align-items:end;gap:4px 12px;padding:14px 16px;border:2px solid var(--on-yel);background:rgba(255,255,255,.55)}
+.stage.dark{background:var(--on-yel);color:#ffffff}
+.stage .k{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.stage .t{font-size:20px;font-weight:700;grid-column:1}
+.stage .w{grid-row:1 / span 2;grid-column:2;font-size:34px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.stage.dark .w{color:var(--band1)}
+.cbar{padding:14px 16px;border:2px solid var(--on-yel);background:rgba(255,255,255,.55)}
+.cbar .k{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.cbar .seg{display:flex;height:34px;margin-top:8px;border:2px solid var(--on-yel)}
+.cbar .seg span{display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:600;white-space:nowrap;overflow:hidden}
+.cbar .seg span:nth-child(1){flex:50;background:var(--on-yel);color:#ffffff}
+.cbar .seg span:nth-child(2){flex:25;background:#ffffff;color:#111111;border-right:2px solid var(--on-yel)}
+.cbar .seg span:nth-child(3){flex:25;background:#ffffff;color:#111111}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--on-yel)}
+.steps li{display:flex;gap:12px;align-items:baseline;padding:14px 16px 0 0;font-size:14px;line-height:1.4}
+.steps b{font-size:28px;line-height:1;font-weight:700;font-variant-numeric:tabular-nums}
+.progs{display:flex;gap:6px;flex-wrap:wrap;margin-top:18px}
+.progs span{border:1.5px solid var(--on-yel);padding:3px 9px;font-size:12px;font-weight:600;letter-spacing:.04em}
+.hero-mark{position:absolute;right:-2vw;bottom:-4vw;font-size:clamp(180px,34vw,460px);font-weight:700;line-height:.8;letter-spacing:-.05em;color:rgba(255,255,255,.3);-webkit-text-stroke:0;pointer-events:none;user-select:none;z-index:0}
+body:not(.in) main.wrap, body:not(.in) #band, body:not(.in) #bar{display:none!important}
+
+body.in #login{display:none}
+@media (max-width:760px){
+  .hero-grid{grid-template-columns:1fr;gap:24px}
+  .steps{grid-template-columns:1fr}
+  .hero-form{flex-direction:column;box-shadow:4px 4px 0 var(--on-yel)}
+  .hero-form input{border-right:2px solid var(--on-yel);border-bottom:0}
+}
+@media (max-width:760px){
+  .levels{grid-template-columns:1fr}
+  .lvl{border-right:0;border-bottom:1px solid var(--hair)}
+  .lvl.zero{justify-content:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ================= Back con la misma estética del front (lavanda · azul marino · amarillo) ================= */
+:root{--bg:#faf9ff;--surface:#ffffff;--soft:#f3f1fd;--fg:#1f1d4f;--muted:#6b6990;--line:#dcd8f3;--hair:#eceaf8;--dark:#1f1d4f;--on-dark:#ffffff;--yel:#ffd84d;--on-yel:#1f1d4f;--pale:#f6f4ff;--band1:#eeecfd;--band2:#e4e0fb;--violet:#6d62d9}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#14132a;--surface:#1c1b36;--soft:#25244a;--fg:#eceaff;--muted:#a9a6cc;--line:#3a3866;--hair:#2c2b52;--dark:#0f0e22;--on-dark:#ffffff;--pale:#23224a;--yel:#ffd84d;--on-yel:#1f1d4f;--band1:#1c1b36;--band2:#1c1b36;--violet:#a79ff5;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14132a;--surface:#1c1b36;--soft:#25244a;--fg:#eceaff;--muted:#a9a6cc;--line:#3a3866;--hair:#2c2b52;--dark:#0f0e22;--on-dark:#ffffff;--pale:#23224a;--yel:#ffd84d;--on-yel:#1f1d4f;--band1:#1c1b36;--band2:#1c1b36;--violet:#a79ff5;color-scheme:dark}
+.band{background:var(--surface);color:var(--fg);border-bottom:1px solid var(--hair);padding-block:14px}
+.band h1{font-size:20px;letter-spacing:0}
+.band p{font-size:11px;color:var(--muted)}
+.udem{border-radius:10px;background:var(--dark);color:#ffffff;font-size:13px}
+nav.tabs{border-bottom:0;gap:6px;background:var(--surface);border:1px solid var(--hair);border-radius:14px;padding:5px;display:inline-flex;margin-bottom:22px}
+nav.tabs button{border:0;margin:0;border-radius:10px;padding:8px 14px}
+nav.tabs button[aria-selected="true"]{background:var(--band1);color:var(--fg);border:0}
+.welcome h2{letter-spacing:-.02em}
+.btn{border-radius:10px;border-color:var(--line)}
+.btn.primary{background:var(--dark);border-color:var(--dark)}
+.btn.yel{background:var(--yel);color:var(--on-yel);border-color:var(--yel)}
+input,select,textarea{border-radius:10px;border-color:var(--line)}
+.seg{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}
+.seg button+button{border-left:1px solid var(--line)}
+.filters button{border-radius:99px;border:1px solid var(--line)}
+.filters button[aria-pressed="true"]{background:var(--dark);color:#ffffff;border-color:var(--dark)}
+.card{border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 20px rgba(43,40,112,.05)}
+.card:hover{box-shadow:0 16px 30px rgba(43,40,112,.12);transform:translateY(-2px)}
+.card[aria-pressed="true"]{border-color:var(--violet);background:var(--pale);box-shadow:0 0 0 3px rgba(109,98,217,.18)}
+.av{border-radius:50%}
+.card .av{background:var(--band1);color:var(--fg)}
+.tag{border-radius:99px;border:1px solid var(--line)}
+.tag.role{background:var(--yel);color:var(--on-yel);border-color:var(--yel)}
+.picked{border-left:0;border-radius:14px;background:var(--band1);padding:14px 16px}
+.notice{border-radius:12px;border:1px solid var(--line)}
+.empty{border-radius:14px;border-color:var(--line)}
+h2{letter-spacing:-.01em}
+.mark{border-radius:8px;padding:3px 10px}
+.blockhead .mark{background:var(--band1);color:var(--fg)}
+.crit{border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:12px;box-shadow:0 6px 16px rgba(43,40,112,.04)}
+.crit-h{background:var(--soft);border-bottom:1px solid var(--hair)}
+.crit-h .mark{background:var(--yel);color:var(--on-yel)}
+.lvl{border-right:1px solid var(--hair)}
+.lvl:hover{background:var(--pale)}
+.lvl:has(input:checked){background:var(--yel);color:var(--on-yel)}
+.box{border-radius:6px;border-color:var(--line);background:var(--surface)}
+.lvl:has(input:checked) .box{background:var(--dark);border-color:var(--dark)}
+.checks{gap:8px}
+.checks label{border:1px solid var(--line);border-radius:12px;margin-bottom:0}
+.chip{border-radius:99px;border:1px solid var(--line)}
+.who{border-radius:12px}
+.tscroll{border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.tscroll table th,.tscroll table td{border:0;border-bottom:1px solid var(--hair)}
+thead th{background:var(--dark);color:#ffffff}
+.detail td{background:var(--pale)}
+.pill{border-radius:99px}
+.bar{background:var(--dark);border-radius:18px 18px 0 0}
+.bar .btn.yel{border-radius:12px}
+.toast{border-radius:12px;border:0;box-shadow:0 12px 26px rgba(43,40,112,.18)}
+.about{background:var(--bg);color:var(--fg)}
+body.in{background:var(--bg)}
+</style>
+
+<section id="login" class="lp" aria-labelledby="heroTitle">
+  <header class="lp-nav">
+    <span class="lp-logo"><svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 26 L16 4 L28 26 Z" fill="#2b2870"/><circle cx="16" cy="19" r="4.5" fill="#ffd84d"/></svg><b>PIF</b><span>Posgrados Arte y Diseño</span></span>
+    <nav class="lp-links" aria-label="Apartados"><a href="#view-about">Tipos de proyecto</a><a href="#roles-pif">Roles</a><a href="#lp-fechas">Calendario</a><a href="#lp-acceso">Evaluación</a><span class="soon">Alumnos · próximamente</span></nav>
+    <a class="lp-signin" href="#email" id="navEval">Entrar</a>
+  </header>
+
+  <div class="lp-hero">
+    <div class="lp-copy">
+      <p class="lp-eyebrow">Posgrados · Escuela de Arte y Diseño</p>
+      <h1 id="heroTitle">¿Qué es el PIF?</h1>
+      <p class="lp-aka">También conocido como <b>PIC · Proyecto de Innovación y Cambio</b></p>
+      <p class="lp-lede">El <b>Proyecto de Innovación Final</b> tiene como objetivo desarrollar una investigación teórica para generar un proyecto innovador con fines de investigación, desarrollo tecnológico, comercial, de producto y/o de emprendimiento.</p>
+      <div class="lp-ctas"><a class="lp-btn" href="#view-about">Conoce el PIF <span aria-hidden="true">→</span></a><a class="lp-btn ghost" href="#lp-acceso" id="ctaEval">Soy asesor(a) o sinodal</a></div>
+      <ul class="lp-feats">
+        <li><strong>3</strong><span>tipos de<br>proyecto</span></li>
+        <li><strong>14</strong><span>semanas de<br>asignatura</span></li>
+        <li><strong>2</strong><span>presentaciones<br>oficiales</span></li>
+      </ul>
+    </div>
+
+    <div class="lp-art" aria-hidden="true">
+      <svg viewBox="0 0 520 470" class="lp-svg">
+        <circle cx="96" cy="78" r="66" fill="#ffd84d"/>
+        <rect x="112" y="44" width="380" height="392" rx="18" fill="#d9d4fb"/>
+        <g transform="rotate(-7 250 250)"><rect x="170" y="150" width="170" height="226" rx="10" fill="#ffffff"/><rect x="186" y="168" width="138" height="78" rx="6" fill="#ffd84d"/><rect x="186" y="260" width="110" height="9" rx="4" fill="#2b2870"/><rect x="186" y="278" width="130" height="7" rx="3" fill="#c9c3f5"/><rect x="186" y="292" width="120" height="7" rx="3" fill="#c9c3f5"/><rect x="186" y="306" width="96" height="7" rx="3" fill="#c9c3f5"/><circle cx="310" cy="345" r="14" fill="#2b2870"/></g>
+        <g transform="rotate(5 380 300)"><rect x="300" y="190" width="150" height="200" rx="10" fill="#ffffff"/>
+          <rect x="316" y="330" width="18" height="40" fill="#c9c3f5"/><rect x="340" y="310" width="18" height="60" fill="#c9c3f5"/><rect x="364" y="290" width="18" height="80" fill="#8b82e8"/><rect x="388" y="262" width="18" height="108" fill="#2b2870"/><rect x="412" y="240" width="18" height="130" fill="#ffd84d"/>
+          <rect x="316" y="208" width="90" height="9" rx="4" fill="#2b2870"/><rect x="316" y="224" width="70" height="7" rx="3" fill="#c9c3f5"/></g>
+        <path d="M150 120 l12 -18 M170 126 l20 -8 M146 142 l-4 20" stroke="#2b2870" stroke-width="3" stroke-linecap="round"/>
+        <text x="352" y="100" font-family="Caveat, cursive" font-size="32" fill="#2b2870" transform="rotate(-8 352 100)">Investiga.</text>
+        <text x="366" y="136" font-family="Caveat, cursive" font-size="32" fill="#2b2870" transform="rotate(-8 366 136)">Diseña.</text>
+        <text x="372" y="172" font-family="Caveat, cursive" font-size="32" fill="#2b2870" transform="rotate(-8 372 172)">Innova.</text>
+      </svg>
+      <div class="lp-float"><div><b>Medio término</b><span><span id="countN">—</span> <span id="countT">días para el medio término</span></span></div><span class="lp-play">→</span></div>
+    </div>
+  </div>
+
+  <div class="lp-acc-wrap" id="lp-acceso">
+    <div class="lp-acc-copy"><p class="lp-eyebrow">Evaluación</p><h2>¿Eres asesor(a) o sinodal?</h2><p>Entra con tu correo institucional para evaluar a los alumnos de tu comité. Sin contraseña; tu evaluación es privada.</p>
+      <ul class="lp-mini"><li>Rúbricas claras</li><li>Evaluación privada</li><li>Cálculo automático</li></ul></div>
+    <form id="loginForm" class="lp-access" novalidate>
+        <label for="email" class="sr">Correo institucional</label>
+        <div class="lp-search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b68a0" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          <input id="email" type="email" required placeholder="tu.nombre@udem.edu" autocomplete="email" spellcheck="false"></div>
+        <div class="domains" id="domains"><span>Completar con</span><button type="button" data-dom="@udem.edu">@udem.edu</button><button type="button" data-dom="@udem.edu.mx">@udem.edu.mx</button></div>
+        <div class="hello" id="hello" aria-live="polite"><span class="av" id="helloAv" aria-hidden="true">?</span><p id="helloTxt">Asesores y sinodales: al escribir tu correo te mostramos a los alumnos de tu comité.</p></div>
+        <button class="go" type="submit">Entrar a evaluar <span aria-hidden="true">→</span></button>
+        <p class="err" id="loginErr" hidden>Escribe un correo válido, por ejemplo nombre@udem.edu.</p>
+      </form>
+  </div>
+
+  <div class="lp-sec" id="lp-apartados">
+    <div class="lp-sec-h"><div><h2>Apartados del PIF</h2><p>Todo lo que necesitas saber sobre el proyecto, en un solo lugar.</p></div><a href="#view-about">Ver todo →</a></div>
+    <div class="lp-cards">
+      <a class="lp-card" href="#view-about"><div class="lp-thumb t1"><svg viewBox="0 0 200 110" aria-hidden="true"><rect x="30" y="18" width="70" height="80" rx="8" fill="#fff"/><rect x="40" y="30" width="50" height="8" rx="3" fill="#2b2870"/><rect x="40" y="46" width="44" height="5" rx="2" fill="#c9c3f5"/><rect x="40" y="56" width="48" height="5" rx="2" fill="#c9c3f5"/><circle cx="140" cy="55" r="30" fill="#ffd84d"/><text x="140" y="66" text-anchor="middle" font-family="Poppins, sans-serif" font-weight="700" font-size="30" fill="#2b2870">?</text></svg></div><h3>Tipos de proyecto y etapas</h3><span class="lp-meta">3 tipos de proyecto · 14 semanas</span><p>Investigación, consultoría o emprendimiento, y cómo avanza desde el anteproyecto.</p></a>
+      <a class="lp-card" href="#roles-pif"><div class="lp-thumb t2"><svg viewBox="0 0 200 110" aria-hidden="true"><circle cx="55" cy="46" r="16" fill="#2b2870"/><rect x="33" y="66" width="44" height="28" rx="14" fill="#2b2870"/><circle cx="100" cy="40" r="18" fill="#ffd84d"/><rect x="76" y="62" width="48" height="32" rx="16" fill="#ffd84d"/><circle cx="145" cy="46" r="16" fill="#8b82e8"/><rect x="123" y="66" width="44" height="28" rx="14" fill="#8b82e8"/></svg></div><h3>Roles</h3><span class="lp-meta">DIPO · Alumno · Asesor · Sinodales</span><p>Qué le toca a cada quien y cuánto pesa cada evaluación.</p></a>
+      <a class="lp-card" href="#email" id="cardEval"><div class="lp-thumb t3"><svg viewBox="0 0 200 110" aria-hidden="true"><rect x="36" y="16" width="128" height="80" rx="8" fill="#fff"/><g fill="#c9c3f5"><rect x="48" y="30" width="16" height="12" rx="2"/><rect x="48" y="50" width="16" height="12" rx="2"/><rect x="48" y="70" width="16" height="12" rx="2"/></g><path d="M51 36l4 4 7-8M51 56l4 4 7-8" stroke="#2b2870" stroke-width="3" fill="none"/><g fill="#2b2870"><rect x="72" y="32" width="70" height="7" rx="3"/><rect x="72" y="52" width="60" height="7" rx="3"/><rect x="72" y="72" width="66" height="7" rx="3" opacity=".35"/></g></svg></div><h3>Evaluación</h3><span class="lp-meta">Para asesores y sinodales</span><p>Rúbricas de medio término y disertación con cálculo automático.</p></a>
+    </div>
+  </div>
+
+  <div class="lp-band" id="lp-fechas">
+    <div class="lp-sec-h"><div><h2>Las dos presentaciones</h2><p>Cada una la califica el comité: asesor(a) 50 %, sinodal 1 25 % y sinodal 2 25 %.</p></div></div>
+    <div class="lp-paths">
+      <div class="lp-path"><div class="lp-pthumb"><span>40%</span></div><div><h3>Medio término</h3><p>12–17 de octubre · semana 7 aprox. Revisa que el proyecto vaya bien encaminado.</p><span class="lp-link">Documento, presentación y exposición</span></div></div>
+      <div class="lp-path"><div class="lp-pthumb dark"><span>60%</span></div><div><h3>Disertación</h3><p>3–9 de diciembre · semana 14. Proyecto terminado y defensa ante el comité.</p><span class="lp-link">Libro digital, pósters y defensa</span></div></div>
+    </div>
+  </div>
+</section>
+
+<header class="band" id="band"><div class="band-in">
+  <div><h1>PIF · EVALUACIÓN</h1><p>Posgrados Escuela de Arte y Diseño · Medio término y disertación</p></div>
+  <div class="udem" aria-label="UDEM">UDEM</div>
+</div></header>
+
+<main class="wrap">
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="tab-eval" aria-selected="true" data-view="eval">Evaluar</button>
+    <button role="tab" id="tab-res" aria-selected="false" data-view="res">Resultados</button>
+    <button role="tab" id="tab-alu" aria-selected="false" data-view="alu">Alumnos</button>
+    <button role="tab" id="tab-about" aria-selected="false" data-view="about">¿Qué es el PIF?</button>
+  </nav>
+  <div id="dbnote" class="notice" data-kind="info">Conectando con la base de calificaciones…</div>
+
+  <!-- EVALUAR -->
+  <section id="view-eval">
+
+    <div id="evalBody" hidden>
+      <div class="welcome">
+        <div><h2 id="welcomeTitle">Hola</h2><p>Evaluando como <b id="whoEmail"></b> · <button class="btn" id="logout" type="button" style="padding:3px 10px;font-size:12px">Cambiar correo</button></p></div>
+        <div class="seg" role="group" aria-label="Etapa"><button type="button" data-et="mt" aria-pressed="true">Medio término<small>40 %</small></button><button type="button" data-et="dis" aria-pressed="false">Disertación<small>60 %</small></button></div>
+      </div>
+      <div class="filters" id="progFilter" hidden></div>
+      <div class="cards" id="cards"></div>
+      <div id="picked" class="picked" hidden></div>
+
+      <div class="grid" id="pickGrid" hidden>
+        <label class="f" for="prog">Programa<select id="prog"></select></label>
+        <label class="f" for="etapa">Etapa<select id="etapa"><option value="mt">Medio término</option><option value="dis">Disertación</option></select></label>
+        <label class="f" for="alumno">Alumno(a)<select id="alumno"></select></label>
+      </div>
+      <div id="roleWrap" hidden><p class="f" style="margin:14px 0 6px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em">Rol a capturar <span id="rolLock" style="text-transform:none;letter-spacing:0;font-weight:400" class="muted">· se asigna según tu correo</span></p>
+      <div class="roles" id="roles">
+        <label class="chip"><input type="radio" name="rol" value="asesor" id="rol-asesor"> Asesor(a) · 50 %</label>
+        <label class="chip"><input type="radio" name="rol" value="sinodal1" id="rol-s1"> Sinodal 1 · 25 %</label>
+        <label class="chip"><input type="radio" name="rol" value="sinodal2" id="rol-s2"> Sinodal 2 · 25 %</label>
+      </div></div>
+      <div id="committee" class="muted" style="margin-top:8px" hidden></div>
+      <div id="existing" class="notice" hidden style="margin-top:12px"></div>
+
+      <div id="rubricArea"></div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section id="view-res" hidden>
+    <h2>Calificación del comité</h2>
+    <div class="grid" style="margin-bottom:12px">
+      <label class="f" for="rprog">Programa<select id="rprog"></select></label>
+      <label class="f" for="retapa">Vista<select id="retapa"><option value="final">Calificación final (40 % + 60 %)</option><option value="mt">Medio término</option><option value="dis">Disertación</option></select></label>
+    </div>
+    <div id="resTable"></div>
+    <p class="formula">Calificación final del PIF = Medio término × 40 % + Disertación × 60 %. En cada etapa: Asesor × 50 % + Sinodal 1 × 25 % + Sinodal 2 × 25 %. Cada evaluador califica sobre 100 (peso × nivel ÷ 4). Mínimo aprobatorio: 70. Las nominaciones a PIF Sobresaliente se turnan al Comité Directivo de Posgrados. Toca una fila para ver el detalle por criterio.</p>
+  </section>
+
+  <!-- ALUMNOS -->
+  <section id="view-alu" hidden>
+    <h2>Alumnos por evaluar</h2>
+    <div id="aluList"></div>
+    <h2>Agregar alumno(a)</h2>
+    <form id="aluForm" class="grid">
+      <label class="f" for="a-nombre">Nombre completo<input id="a-nombre" required></label>
+      <label class="f" for="a-mat">Matrícula<input id="a-mat" inputmode="numeric"></label>
+      <label class="f" for="a-proy">Proyecto<input id="a-proy"></label>
+      <label class="f" for="a-prog">Programa<select id="a-prog"></select></label>
+      <label class="f" for="a-ases">Asesor(a)<input id="a-ases"></label>
+      <label class="f" for="a-s1">Sinodal 1<input id="a-s1"></label>
+      <label class="f" for="a-s2">Sinodal 2<input id="a-s2"></label>
+      <div style="display:flex;align-items:flex-end"><button class="btn primary" type="submit">Agregar</button></div>
+    </form>
+  </section>
+</main>
+
+<section id="view-about" class="about" aria-labelledby="aboutTitle">
+  <div class="about-in">
+    <div class="about-head">
+      <p class="about-eyebrow">Acerca del programa</p>
+      <h2 id="aboutTitle">¿Qué es el PIF?</h2>
+      <p class="aka">También conocido como <b>PIC · Proyecto de Innovación y Cambio</b></p>
+    </div>
+    <p class="about-lead">El Proyecto de Innovación Final, conocido por sus siglas <b>PIF</b>, tiene como objetivo desarrollar una investigación teórica para generar un proyecto innovador propuesto con fines de investigación, desarrollo tecnológico, comercial, de producto y/o de emprendimiento.</p>
+
+    <h3 class="about-h">Tres tipos de proyecto</h3>
+    <div class="types">
+      <article class="type"><span class="type-n">A</span><h4>Investigación</h4><p>Proyecto de investigación propio o que apoya una línea de investigación académica.</p></article>
+      <article class="type"><span class="type-n">B</span><h4>Consultoría y desarrollo</h4><p>Proyecto de consultoría, de desarrollo tecnológico o comercial: producto, servicio o sistema, según aplique.</p></article>
+      <article class="type"><span class="type-n">C</span><h4>Emprendimiento</h4><p>Proyecto que da origen a una propuesta de negocio o emprendimiento.</p></article>
+    </div>
+
+    <h3 class="about-h">Cómo avanza</h3>
+    <ol class="journey">
+      <li><span class="j-when">Penúltimo cuatrimestre</span><b>Anteproyecto</b><p>Arranque de la idea y la propuesta. Se presenta en el penúltimo cuatrimestre o en la asignatura de Métodos de Investigación e incluye la investigación teórica, la justificación, el planteamiento de objetivos y las intenciones de investigación o diseño (alcances y objetivos).</p></li>
+      <li><span class="j-when">Último cuatrimestre · 14 semanas</span><b>Materia PIF</b><p>El alumno o equipo tiene sesiones semanales de seguimiento y retroalimentación con su asesor.</p></li>
+      <li class="hl"><span class="j-when">Semana 7 aprox. · 40 %</span><b>Medio término</b><p>Primera entrega oficial, calificada por asesor y sinodales.</p></li>
+      <li class="hl dark"><span class="j-when">Semana 14 · 60 %</span><b>Disertación</b><p>Presentación final en la última semana del periodo, calificada por asesor y sinodales.</p></li>
+    </ol>
+
+
+    <h3 class="about-h" id="roles-pif">Roles</h3>
+    <div class="roles-grid">
+      <article class="rcard">
+        <header><span class="rtag">DIPO</span><h4>Director(a) de Posgrados</h4></header>
+        <ul>
+          <li>Gestiona y selecciona oficialmente a los asesores y sinodales de cada PIF, entre el anteproyecto y el inicio de la asignatura. Su decisión es inapelable.</li>
+          <li>Comparte la información con cada uno de los involucrados.</li>
+          <li>Según la disponibilidad de todas las partes, establece la fecha oficial de las presentaciones de medio término y final, que se comparten durante las primeras 5 semanas del curso.</li>
+        </ul>
+      </article>
+      <article class="rcard">
+        <header><span class="rtag">Alumno</span><h4>Alumno(a) o equipo</h4></header>
+        <ul>
+          <li>Es proactivo y demuestra, por medio de la autogestión, su capacidad de desarrollar el proyecto, ya sea como líder de equipo o de forma individual.</li>
+          <li>Administra su tiempo y las habilidades de cada integrante, trabajando de manera colegiada hacia el mismo objetivo.</li>
+          <li>Es responsable de leer y corregir el documento en cada entrega o revisión, hasta lograr un documento factible de publicación y presentación que aporte al conocimiento y a la disciplina.</li>
+          <li>Sube a su carpeta digital la información que solicite la Dirección de Posgrados y comparte lo necesario para las presentaciones de medio término y final con su DIPO, asesor y sinodales.</li>
+        </ul>
+      </article>
+      <article class="rcard">
+        <header><span class="rtag">Asesor · 50 %</span><h4>Asesor(a)</h4></header>
+        <ul>
+          <li>Guía el proyecto y marca la pauta del avance de la investigación; el alumno es responsable de alcanzar los objetivos establecidos.</li>
+          <li>Avisa por escrito al DIPO, con copia a los alumnos, si el proyecto tiene 2 semanas de retraso.</li>
+          <li>Si el retraso llega a la tercera semana, envía otra carta al DIPO, sinodales y alumnos, considerando suspender el proyecto; la propuesta se evalúa en la siguiente presentación del equipo.</li>
+        </ul>
+        <p class="rw">Su evaluación equivale al <b>50 %</b> de la calificación.</p>
+      </article>
+      <article class="rcard">
+        <header><span class="rtag">Sinodal · 25 % c/u</span><h4>Sinodales</h4></header>
+        <ul>
+          <li>Fungen como asesores externos. Se reúnen 2 veces con el equipo y su asesor: en el medio término, para apoyar el desarrollo y evaluar el desempeño del equipo y de cada alumno, y en la disertación, donde se revisa el resultado final.</li>
+          <li>Hay 2 sinodales por proyecto y un sustituto; en cada presentación deben asistir al menos 2.</li>
+          <li>Enriquecen el proyecto con críticas constructivas, cuestionamientos, literatura, contactos estratégicos y su experiencia.</li>
+          <li>No asesoran durante el desarrollo, para cuidar su imparcialidad, salvo que el asesor lo proponga o se les solicite específicamente.</li>
+          <li>Avisan con 3 días de anticipación si no pueden asistir a una presentación, para enviar a un sustituto.</li>
+        </ul>
+        <p class="rw">Su evaluación equivale al <b>50 %</b> de la calificación (<b>25 %</b> cada uno).</p>
+      </article>
+    </div>
+    <div class="about-cols">
+      <div>
+        <h3 class="about-h">Qué se desarrolla</h3>
+        <p>Un proyecto, producto, servicio o sistema construido a partir de:</p>
+        <ul class="incl">
+          <li>Investigación y marco teórico (estado del arte)</li>
+          <li>Metodología</li>
+          <li>Hipótesis o premisas de diseño</li>
+          <li>Proceso y desarrollo del proyecto</li>
+          <li>Justificación, evaluación y presentación de resultados y entregables</li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="about-h">Qué se evalúa en el alumno</h3>
+        <p>Durante el PIF el alumno trabaja con temas relevantes de su área y se evalúa su:</p>
+        <ul class="incl">
+          <li>Responsabilidad</li>
+          <li>Capacidad metodológica para buscar, procesar y utilizar información</li>
+          <li>Planteamiento de problemas</li>
+          <li>Diseño de soluciones</li>
+          <li>Aplicación de la técnica adecuada en cada caso</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="bar" id="bar" hidden><div class="bar-in">
+  <div><div class="big" id="barTotal">0.0 / 100</div><small id="barInfo">0 de 0 criterios</small></div>
+  <div id="barState"></div>
+  <button class="btn yel" id="save" type="button">Guardar evaluación</button>
+</div></div>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+const RUB0={"MADV":{"nombre":"Maestría en Arte y Diseño de Videojuegos","etapas":{"mt":{"form":"FORM PI #4.0","entregables":["Documento de avance conforme al formato «Estructura del documento» (tesis o GDD)","Presentación en formato PDF","Exposición ante asesor y sinodales en la fecha asignada (40 min por equipo)"],"cierre":["Fortalezas del avance","Observaciones obligatorias para la disertación","Recomendaciones adicionales"],"bloques":[{"id":"A","nombre":"Documento de avance","criterios":[{"id":"A1","nombre":"Planteamiento del proyecto","peso":10,"que":"Área de oportunidad, objetivo general, objetivos específicos, alcances y limitaciones.","d":["Problemática sustentada con datos y fuentes; objetivos medibles y alineados; alcances realistas y ajustados a lo aprendido en PIF anteriores.","Problemática y objetivos claros y coherentes; algunos objetivos o alcances poco medibles.","Planteamiento general o poco sustentado; incongruencias entre objetivos y alcances.","Planteamiento ausente, confuso o sin relación con el proyecto."]},{"id":"A2","nombre":"Marco teórico y referencial","peso":10,"que":"Teorías, técnicas y metodologías; referentes inspiracionales y aspiracionales. GDD: Research, References, Moodboards.","d":["Teoría pertinente y actual aplicada explícitamente a las decisiones del proyecto; referentes analizados críticamente.","Teoría y referentes pertinentes, con relación parcial a las decisiones del proyecto.","Teoría descriptiva o genérica; referentes mostrados sin análisis.","Marco ausente, copiado o sin relación con el proyecto."]},{"id":"A3","nombre":"Planeación y seguimiento","peso":10,"que":"Recursos, cotización, cronograma y avance real vs. planeado. GDD: Production (timeline, budget, changelog).","d":["Cronograma actualizado con avance real vs. planeado y ajustes justificados; cotización completa y realista.","Cronograma y cotización completos, con seguimiento parcial del avance.","Cronograma o cotización incompletos o desactualizados.","Sin planeación ni evidencia de seguimiento."]},{"id":"A4","nombre":"Redacción, estructura y formato APA","peso":5,"que":"Ortografía, claridad, índice, numeración de figuras, citas y referencias APA 7.","d":["Redacción académica clara sin errores; estructura completa; figuras numeradas con fuente; APA 7 correcto.","Pocos errores de redacción o formato; citas mayormente correctas.","Errores frecuentes de redacción, numeración o citación.","Documento desordenado, con errores graves o sin referencias."]}]},{"id":"B","nombre":"Avance del proyecto","criterios":[{"id":"B1","nombre":"Proceso creativo e iteración","peso":10,"que":"Concept art, exploraciones, versiones, rondas de corrección y decisiones de diseño documentadas.","d":["Proceso documentado versión a versión; cada corrección explica el problema detectado y la solución.","Iteraciones visibles con justificación parcial de los cambios.","Se muestran resultados sin explicar decisiones ni correcciones.","Sin evidencia de proceso."]},{"id":"B2","nombre":"Diseño del juego / proyecto interactivo","peso":10,"que":"Mecánicas, dinámicas y sistemas; narrativa y flujo; UI/UX; audio; progresión.","d":["Diseño completo y coherente; mecánicas, narrativa, UI/UX y audio se refuerzan entre sí.","Diseño completo con algunos apartados poco desarrollados.","Diseño incompleto; apartados vacíos o solo enunciados.","Sin documentación de diseño."]},{"id":"B3","nombre":"Avance de producción","peso":15,"que":"Assets (personajes, escenarios, objetos), primeras integraciones en motor y prototipo, según cronograma.","d":["Avance igual o superior al planeado; assets de buena calidad y primeras pruebas funcionales en motor.","Avance cercano al planeado (≈75 %) con calidad aceptable.","Avance menor al 50 % de lo planeado o con problemas técnicos importantes.","Avance mínimo o nulo."]}]},{"id":"C","nombre":"Validación preliminar","criterios":[{"id":"C1","nombre":"Mercado meta y plan de pruebas","peso":10,"que":"Definición del público objetivo, juegos/proyectos similares y plan de playtesting o focus group. GDD: Audience, Playtesting.","d":["Mercado meta definido con datos; competidores identificados; plan de pruebas con instrumento, muestra y fechas.","Mercado meta y competidores identificados; plan de pruebas general.","Mercado meta vago; sin plan de pruebas concreto.","Sin definición de mercado ni plan de pruebas."]}]},{"id":"D","nombre":"Comunicación del avance","criterios":[{"id":"D1","nombre":"Presentación y exposición","peso":12,"que":"Presentación PDF, estructura del discurso, dominio del tema y manejo del tiempo.","d":["Exposición clara y segura; comunica problema, proceso y avance en el tiempo asignado; material visual profesional.","Exposición clara con ligeros problemas de estructura, tiempo o material.","Exposición desorganizada o leída; excede o no cubre el tiempo.","No presenta o no permite entender el avance."]},{"id":"D2","nombre":"Respuesta a preguntas y retroalimentación","peso":8,"que":"Argumentación ante asesor y sinodales; apertura a la crítica.","d":["Responde con fundamento; reconoce áreas de mejora y propone acciones concretas.","Responde adecuadamente la mayoría de las preguntas.","Respuestas imprecisas o evasivas.","No logra responder."]}]}]},"dis":{"form":"FORM PI #4.1","entregables":["Documento final (libro digital) conforme al formato oficial (Anexo I), enviado una semana antes","Póster con resultados finales (Anexo II)","Presentación en PDF","Build / demo jugable o evidencia audiovisual del proyecto","Documento opcional con diseño editorial (no sustituye el oficial)"],"cierre":["Fortalezas del proyecto","Correcciones para la entrega final (72 horas)","Recomendaciones adicionales / trabajo futuro"],"bloques":[{"id":"A","nombre":"Documento final","criterios":[{"id":"A1","nombre":"Planteamiento y fundamentación","peso":6,"que":"Área de oportunidad, objetivos, alcances, marco teórico y referencial. GDD: Concept, Research.","d":["Planteamiento sólido y congruente con el resultado final; teoría y referentes aplicados en las decisiones.","Planteamiento y fundamentación claros, con relación parcial al resultado.","Fundamentación genérica o incongruente con lo producido.","Fundamentación ausente o sin relación con el proyecto."]},{"id":"A2","nombre":"Documentación del proceso","peso":6,"que":"Proceso creativo, iteraciones, decisiones técnicas y problemas resueltos. GDD: Game Design, Art, Changelog.","d":["Proceso completo, ordenado y reflexivo; explica decisiones y soluciones de principio a fin.","Proceso completo con reflexión parcial.","Proceso incompleto o solo descriptivo.","Sin documentación del proceso."]},{"id":"A3","nombre":"Resultados y conclusiones","peso":6,"que":"Cumplimiento de objetivos, hallazgos, aportación a la disciplina y trabajo futuro.","d":["Evalúa cada objetivo con evidencia; conclusiones críticas, aportación clara y trabajo futuro concreto.","Conclusiones claras con evaluación parcial de objetivos.","Conclusiones generales sin evidencia.","Sin conclusiones."]},{"id":"A4","nombre":"Redacción, formato oficial y APA","peso":7,"que":"Formato oficial (Anexo I), redacción académica, figuras, citas y referencias APA 7; documento publicable.","d":["Documento publicable: cumple el formato oficial, sin errores, APA 7 correcto y completo.","Cumple el formato con pocos errores menores.","Errores frecuentes de formato, redacción o citación.","No cumple el formato oficial o tiene errores graves."]}]},{"id":"B","nombre":"Proyecto final","criterios":[{"id":"B1","nombre":"Calidad técnica y artística","peso":10,"que":"Assets finales: modelado, retopología, UVs, texturizado, animación, diseño visual y sonoro según alcance.","d":["Calidad profesional y consistente con la dirección de arte; optimizado para tiempo real.","Buena calidad con detalles menores por pulir.","Resultados incompletos o con problemas técnicos visibles.","Calidad muy por debajo del nivel de maestría."]},{"id":"B2","nombre":"Prototipo funcional e integración","peso":12,"que":"Integración en motor, iluminación, VFX, interacción, mecánicas y estabilidad del build / vertical slice.","d":["Build jugable y estable; arte, iluminación, VFX y mecánicas integrados construyen la experiencia propuesta.","Prototipo funcional con integración correcta y aspectos parcialmente resueltos.","Integración parcial o prototipo con fallas importantes.","Sin prototipo ni integración."]},{"id":"B3","nombre":"Cumplimiento de alcances","peso":8,"que":"Grado de terminación frente a los alcances comprometidos; nivel de pulido y masterización.","d":["100 % de los alcances con acabado final listo para presentarse o liberarse.","≈75 % de los alcances con acabado aceptable.","≈50 % de los alcances; en estado de prototipo.","Menos de la mitad de los alcances."]}]},{"id":"C","nombre":"Pruebas con mercado meta","criterios":[{"id":"C1","nombre":"Estudio de mercado y competencia","peso":5,"que":"Mercado meta, tendencias del sector, análisis de competidores y diferenciación. GDD: Audience.","d":["Mercado meta con datos y fuentes; análisis comparativo de competidores y diferenciador claro.","Mercado y competencia identificados con datos parciales.","Análisis superficial o sin datos.","Sin estudio de mercado."]},{"id":"C2","nombre":"Focus group / playtesting","peso":5,"que":"Instrumento, muestra, aplicación, análisis de resultados y mejoras derivadas. GDD: Playtesting.","d":["Pruebas con muestra del mercado meta; resultados analizados y convertidos en mejoras concretas.","Pruebas aplicadas y resultados presentados con pocos ajustes derivados.","Prueba informal o muestra no representativa; sin análisis.","Sin pruebas con usuarios."]}]},{"id":"D","nombre":"Estrategia de lanzamiento y venta","criterios":[{"id":"D1","nombre":"Modelo de negocio y venta","peso":5,"que":"Propuesta de valor, plataformas, precio, monetización y fechas de lanzamiento. GDD: Revenue Model, Platform, Release Dates.","d":["Modelo viable y coherente con el mercado y la cotización; plan de lanzamiento con metas medibles.","Modelo completo con supuestos poco sustentados.","Modelo genérico o incompleto.","Sin modelo de negocio."]},{"id":"D2","nombre":"Comunicación y difusión","peso":5,"que":"Identidad, redes, trailer, press kit, comunidad, festivales. GDD: Merchandising, Elevator Pitch.","d":["Plan con canales y calendario, y piezas producidas (trailer, key art, press kit o redes activas).","Plan definido con algunas piezas producidas.","Ideas generales sin piezas ni calendario.","Sin estrategia de comunicación."]}]},{"id":"E","nombre":"Disertación","criterios":[{"id":"E1","nombre":"Póster de resultados finales","peso":5,"que":"Síntesis visual conforme al Anexo II: problema, proceso, resultados y conclusiones.","d":["Póster profesional, jerarquizado y conforme al Anexo II.","Póster completo con detalles menores.","Póster incompleto o poco legible.","Sin póster."]},{"id":"E2","nombre":"Presentación y exposición","peso":8,"que":"Presentación PDF y demo; claridad, estructura, dominio y tiempo (25–30 min).","d":["Exposición clara, estructurada y segura en 25–30 min; comunica problema, proceso, resultados y valor; demo sin fallas.","Exposición clara con ligeros problemas de estructura o tiempo.","Exposición desorganizada o leída; no respeta el tiempo.","No presenta o no permite entender el proyecto."]},{"id":"E3","nombre":"Defensa ante el comité","peso":7,"que":"Respuesta a preguntas de sinodales, asesor y DIPO (15–20 min); reflexión crítica.","d":["Responde con fundamento y dominio; reconoce limitaciones y propone siguientes pasos.","Responde adecuadamente la mayoría de las preguntas.","Respuestas imprecisas o evasivas.","No logra defender el proyecto."]}]},{"id":"F","nombre":"Seguimiento del medio término","criterios":[{"id":"F1","nombre":"Atención a observaciones","peso":5,"que":"Integración de las observaciones registradas en la rúbrica de medio término y en la minuta de la presentación.","d":["Todas las observaciones atendidas y documentadas (qué se cambió y por qué).","La mayoría de las observaciones atendidas.","Pocas observaciones atendidas.","Observaciones ignoradas."]}]}]}}},"MDG":{"nombre":"Maestría en Diseño Gráfico","etapas":{"mt":{"form":"FORM PI #4.0","entregables":["Documento conforme al formato «Estructura del documento» (capítulos 1 a 4 desarrollados)","Presentación en formato PDF","Exposición ante asesor y sinodales en la fecha agendada (40 min por equipo)"],"cierre":["Fortalezas del avance","Observaciones obligatorias para la disertación","Recomendaciones adicionales (literatura, contactos, referentes)"],"bloques":[{"id":"A","nombre":"Documento de avance","criterios":[{"id":"A1","nombre":"Antecedentes y planteamiento","peso":15,"que":"Cap. 1: introducción con contexto, datos y estadísticas; planteamiento del problema; pregunta de investigación; objetivos; alcances y limitantes.","d":["Contexto sustentado con datos y estadísticas; pregunta de investigación precisa; objetivos medibles y alineados; alcances y limitantes realistas.","Planteamiento claro con sustento parcial; algunos objetivos poco medibles.","Planteamiento general o sin datos; incongruencias entre pregunta, objetivos y alcances.","Planteamiento ausente o confuso."]},{"id":"A2","nombre":"Marco teórico","peso":15,"que":"Cap. 2: teoría sobre los temas del problema y sobre las áreas del diseño que se utilizarán (mínimo 20 páginas en la versión final).","d":["Teoría amplia, pertinente y actual sobre el problema y el diseño; fuentes académicas; avance cercano a la extensión requerida.","Teoría pertinente con algunos temas o subtemas poco desarrollados.","Teoría descriptiva, con pocas fuentes o sin teoría del diseño.","Marco teórico ausente o sin relación con el problema."]},{"id":"A3","nombre":"Marco referencial","peso":10,"que":"Cap. 3: competencia internacional, nacional y local; investigaciones y proyectos de diseño similares.","d":["Análisis crítico de competencia en los tres niveles, con criterios comparativos y oportunidades para la propuesta.","Competencia en los tres niveles con análisis parcial.","Competencia incompleta o solo descriptiva.","Sin marco referencial."]},{"id":"A4","nombre":"Metodología","peso":10,"que":"Cap. 4: metodología nombrada y justificada; etapas y tácticas definidas; primeras tácticas aplicadas con resultados.","d":["Metodología pertinente y justificada; etapas y tácticas claras; primeras tácticas aplicadas con resultados documentados.","Metodología definida con tácticas aún sin resultados.","Metodología vaga o sin relación con la pregunta de investigación.","Sin metodología."]},{"id":"A5","nombre":"Redacción, estructura y formato APA","peso":5,"que":"Estructura conforme al formato oficial, redacción académica, figuras numeradas, citas y referencias APA 7.","d":["Estructura oficial, redacción académica sin errores y APA 7 correcto.","Pocos errores de redacción o formato.","Errores frecuentes de redacción, estructura o citación.","Documento desordenado o sin referencias."]}]},{"id":"B","nombre":"Avance del proyecto","criterios":[{"id":"B1","nombre":"Revisión de cronograma","peso":10,"que":"Avance real vs. planeado; ajustes justificados; seguimiento semanal (FORM PI #2).","d":["Avance igual o superior al planeado; ajustes justificados y seguimiento semanal al día.","Avance cercano al planeado con retrasos menores.","Retraso importante o seguimiento irregular.","Sin cronograma o sin evidencia de avance."]},{"id":"B2","nombre":"Desarrollo de la aplicación gráfica","peso":15,"que":"Concepto de diseño, exploraciones, bocetos y primeras piezas derivadas de la investigación.","d":["Concepto sólido derivado de la investigación; exploraciones variadas y primeras piezas con buena calidad.","Concepto claro con exploraciones iniciales.","Exploraciones aisladas o sin relación con la investigación.","Sin avance de aplicación gráfica."]}]},{"id":"C","nombre":"Comunicación del avance","criterios":[{"id":"C1","nombre":"Presentación y exposición","peso":12,"que":"Presentación PDF, estructura del discurso, dominio del tema y manejo del tiempo.","d":["Exposición clara y segura; comunica problema, investigación y avance en el tiempo asignado; material visual profesional.","Exposición clara con ligeros problemas de estructura, tiempo o material.","Exposición desorganizada o leída; excede o no cubre el tiempo.","No presenta o no permite entender el avance."]},{"id":"C2","nombre":"Respuesta a preguntas y retroalimentación","peso":8,"que":"Argumentación ante asesor y sinodales; apertura a la crítica.","d":["Responde con fundamento; reconoce áreas de mejora y propone acciones concretas.","Responde adecuadamente la mayoría de las preguntas.","Respuestas imprecisas o evasivas.","No logra responder."]}]}]},"dis":{"form":"FORM PI #4.1","entregables":["Libro digital del documento final conforme al Anexo I, enviado una semana antes","Póster con los resultados finales (Anexo II)","Presentación en PDF","Entrega digital en Google Drive: archivos editables y PDF, póster y presentaciones parciales","Documento opcional con diseño editorial (no sustituye el formato oficial UDEM)"],"cierre":["Fortalezas del proyecto","Correcciones para la entrega final (72 horas)","Adecuaciones para el repositorio (1 semana) / siguientes pasos"],"bloques":[{"id":"A","nombre":"Documento final","criterios":[{"id":"A1","nombre":"Antecedentes y planteamiento","peso":6,"que":"Cap. 1: contexto con datos, planteamiento, pregunta de investigación, objetivos, alcances y limitantes.","d":["Planteamiento sustentado con datos y congruente con el resultado final.","Planteamiento claro con sustento parcial.","Planteamiento general o incongruente con lo producido.","Planteamiento ausente o confuso."]},{"id":"A2","nombre":"Marco teórico","peso":8,"que":"Cap. 2: teoría del problema y de las áreas del diseño; mínimo 20 páginas; fuentes académicas.","d":["Teoría amplia (≥ 20 págs.), actual y aplicada explícitamente en las decisiones de diseño.","Teoría completa con aplicación parcial al diseño.","Teoría incompleta, descriptiva o por debajo de la extensión.","Marco teórico ausente o copiado."]},{"id":"A3","nombre":"Marco referencial","peso":6,"que":"Cap. 3: competencia internacional, nacional y local (3 casos por nivel) y proyectos similares.","d":["Análisis crítico en los tres niveles que justifica la diferenciación de la propuesta.","Tres niveles completos con análisis parcial.","Casos incompletos o solo descriptivos.","Sin marco referencial."]},{"id":"A4","nombre":"Metodología","peso":8,"que":"Cap. 4: metodología justificada; etapas y tácticas con descripción y resultado de cada una.","d":["Metodología pertinente; todas las tácticas descritas con resultados y evidencia.","Metodología completa con algunos resultados poco documentados.","Tácticas incompletas o sin resultados.","Sin metodología aplicada."]},{"id":"A5","nombre":"Formato oficial, redacción y APA","peso":7,"que":"Anexo I completo (portada, resumen, índice, capítulos, referencias, anexos con mock-up); redacción académica; APA 7; documento publicable.","d":["Documento publicable: estructura completa, sin errores, APA 7 correcto.","Cumple el formato con pocos errores menores.","Faltan apartados o hay errores frecuentes.","No cumple el formato oficial."]}]},{"id":"B","nombre":"Resultados y aplicación gráfica","criterios":[{"id":"B1","nombre":"Resultados","peso":10,"que":"Cap. 5: síntesis de hallazgos de la metodología traducidos al diseño; piezas como figuras o anexos.","d":["Hallazgos claros («epifanía») que fundamentan cada decisión de diseño.","Resultados claros con relación parcial al diseño.","Resultados listados sin síntesis ni relación con el diseño.","Sin capítulo de resultados."]},{"id":"B2","nombre":"Calidad de la aplicación gráfica","peso":12,"que":"Piezas de diseño finales: concepto, composición, tipografía, color, sistema visual y pertinencia al problema.","d":["Piezas de calidad profesional, sistema visual coherente y solución pertinente e innovadora.","Buena calidad con detalles por pulir o coherencia parcial.","Piezas incompletas o con problemas de ejecución.","Calidad muy por debajo del nivel de maestría."]},{"id":"B3","nombre":"Producción para publicación / exhibición","peso":8,"que":"Mock-up, prototipo o producción final listos para exhibirse o publicarse.","d":["Mock-up o producción final de alta calidad, listo para exhibición pública.","Mock-up completo con acabado aceptable.","Mock-up parcial o de baja calidad.","Sin mock-up ni producción."]}]},{"id":"C","nombre":"Argumentación y conclusiones","criterios":[{"id":"C1","nombre":"Validación de la propuesta","peso":5,"que":"Investigación de mercado, pruebas con usuarios o validación con expertos o cliente, según el tipo de proyecto.","d":["Validación con método claro, resultados analizados y mejoras incorporadas.","Validación aplicada con análisis parcial.","Validación informal o sin análisis.","Sin validación."]},{"id":"C2","nombre":"Discusión y conclusiones","peso":5,"que":"Cap. 6: respuesta a la pregunta de investigación, cumplimiento de objetivos, limitantes y siguientes pasos.","d":["Responde la pregunta con evidencia; discute limitantes y siguientes pasos concretos.","Conclusiones claras con evaluación parcial de objetivos.","Conclusiones generales sin evidencia.","Sin conclusiones."]}]},{"id":"D","nombre":"Disertación","criterios":[{"id":"D1","nombre":"Póster de resultados finales","peso":5,"que":"Síntesis visual conforme al Anexo II: problema, metodología, resultados y conclusiones.","d":["Póster profesional, jerarquizado y conforme al Anexo II.","Póster completo con detalles menores.","Póster incompleto o poco legible.","Sin póster."]},{"id":"D2","nombre":"Presentación oral / audiovisual","peso":8,"que":"Presentación PDF; claridad, estructura, dominio y tiempo (25–30 min).","d":["Exposición clara, estructurada y segura en 25–30 min; comunica problema, investigación, resultados y valor.","Exposición clara con ligeros problemas de estructura o tiempo.","Exposición desorganizada o leída; no respeta el tiempo.","No presenta o no permite entender el proyecto."]},{"id":"D3","nombre":"Defensa ante el comité","peso":7,"que":"Respuesta a preguntas de sinodales, asesor y DIPO (15–20 min); argumentación y reflexión crítica.","d":["Responde con fundamento y dominio; reconoce limitantes y propone siguientes pasos.","Responde adecuadamente la mayoría de las preguntas.","Respuestas imprecisas o evasivas.","No logra defender el proyecto."]}]},{"id":"E","nombre":"Seguimiento del medio término","criterios":[{"id":"E1","nombre":"Atención a observaciones","peso":5,"que":"Integración de las observaciones registradas en la rúbrica de medio término y en la minuta de la presentación.","d":["Todas las observaciones atendidas y documentadas (qué se cambió y por qué).","La mayoría de las observaciones atendidas.","Pocas observaciones atendidas.","Observaciones ignoradas."]}]}]}}}};
+const RUB={...RUB0,MDDEE:{...RUB0.MDG,nombre:'MDDEE · misma rúbrica que MDG'}};
+const ROLES={asesor:{n:'Asesor(a)',w:.5},sinodal1:{n:'Sinodal 1',w:.25},sinodal2:{n:'Sinodal 2',w:.25}};
+const LVL=['No presentado','Insuficiente','En desarrollo','Satisfactorio','Excelente'];
+const MIN=70;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
+let db=null, canWrite=true, uid=null, isOwner=false;
+let alumnos=[], evals={}, myItems={}, sharedRes={}, lastSynced={};
+// evals: todas las evaluaciones (solo la dueña las recibe); myItems: las mías; sharedRes: lo que la coordinación envió a este asesor
+let state={email:null,prog:'MADV',etapa:'mt',alumno:'',rol:'',niveles:{},entregables:{},obs:{},nom:{}};
+
+// ---------- helpers
+function criterios(prog,etapa){return RUB[prog].etapas[etapa].bloques.flatMap(b=>b.criterios)}
+function score(prog,etapa,niveles){let t=0,n=0;for(const c of criterios(prog,etapa)){const v=niveles?.[c.id];if(v!==undefined&&v!==null&&v!==''){t+=c.peso*v/4;n++}}return{t,n,of:criterios(prog,etapa).length}}
+function fmt(x){return (Math.round(x*10)/10).toFixed(1)}
+function dictamen(etapa,x){if(etapa==='mt')return x>=80?['Avance suficiente','ok']:x>=MIN?['Suficiente con observaciones','warn']:['Avance insuficiente','bad'];return x>=MIN?['Aprobado','ok']:['No aprobado','bad']}
+function key(){return `${state.prog}-${state.etapa}-${state.alumno}-${state.rol}`}
+function toast(t){const el=$('#toast');el.textContent=t;el.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>el.hidden=true,2600)}
+function slug(s){return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,60)||('a'+Date.now())}
+
+// ---------- tabs
+document.querySelectorAll('nav.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('nav.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));
+  for(const v of ['eval','res','alu','about'])$('#view-'+v).hidden=v!==b.dataset.view;
+  $('#bar').hidden=!(b.dataset.view==='eval'&&state.email&&state.alumno&&state.rol);
+  if(b.dataset.view==='res')renderResults(); if(b.dataset.view==='alu')renderAlumnos();
+}));
+
+// ---------- selects
+for(const id of ['#prog','#rprog','#a-prog'])$(id).innerHTML=Object.keys(RUB).map(p=>`<option value="${p}">${p} · ${RUB[p].nombre}</option>`).join('');
+function myRole(a){const m=(state.email||'').toLowerCase();if(!m||!a)return null;for(const k of ['asesor','sinodal1','sinodal2'])if((a[k+'Email']||'').toLowerCase()===m)return k;if((a.coordinacionEmail||'').toLowerCase()===m)return 'coord';return null}
+function initials(n){const w=String(n||'').trim().split(/\s+/).filter(x=>x.length>2||/^[A-ZÁÉÍÓÚÑ]/.test(x));return ((w[0]||'?')[0]+(w[w.length>2?2:1]||w[1]||'')[0]||'').toUpperCase()}
+function personInitials(me){const w=(me.full||'').trim().split(/\s+/);return ((me.short||'?')[0]+(w.length>2?w[w.length-2][0]:(w[1]||'')[0]||'')).toUpperCase()}
+function whoAmI(email){const m=(email||'').trim().toLowerCase();if(!m)return null;let short='',full='',list=[];
+  for(const a of alumnos){for(const k of ['asesor','sinodal1','sinodal2']){if((a[k+'Email']||'').toLowerCase()===m){short=short||a[k];full=full||a[k+'Nombre'];list.push({a,rol:k})}}
+    if((a.coordinacionEmail||'').toLowerCase()===m){full=full||a.coordinacionNombre;short=short||(a.coordinacionNombre||'').split(' ')[0]}}
+  return (short||full)?{short:short||full.split(' ')[0],full,list}:null}
+function statusOf(a,rol){const k=`${a.programa}-${state.etapa}-${a.id}-${rol}`;const it=myItems[k]||(isOwner?evals[k]:null);
+  if(it)return['ok','Guardada · '+fmt(score(a.programa,state.etapa,it.niveles).t)];
+  if(ls.get('pif-draft-'+k))return['draft','Borrador'];return['pend','Pendiente']}
+let ownerFilter='Todos';
+function renderCards(){
+  if(!state.email)return;
+  const me=whoAmI(state.email);
+  $('#welcomeTitle').textContent=me?`Hola, ${me.short}`:'Hola';
+  document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.et===state.etapa));
+  let items;
+  if(isOwner){
+    const progs=['Todos',...Object.keys(RUB)];$('#progFilter').hidden=false;
+    $('#progFilter').innerHTML=progs.map(p=>`<button type="button" data-pf="${p}" aria-pressed="${p===ownerFilter}">${p}</button>`).join('');
+    $('#progFilter').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ownerFilter=b.dataset.pf;renderCards()}));
+    items=alumnos.filter(a=>RUB[a.programa]&&(ownerFilter==='Todos'||a.programa===ownerFilter)).map(a=>({a,rol:(myRole(a)&&myRole(a)!=='coord')?myRole(a):null}));
+  } else items=alumnos.filter(a=>RUB[a.programa]).map(a=>({a,rol:myRole(a)})).filter(x=>x.rol&&x.rol!=='coord');
+  items.sort((x,y)=>(x.a.programa+x.a.nombre).localeCompare(y.a.programa+y.a.nombre));
+  if(!items.length){$('#cards').innerHTML=`<div class="empty" style="grid-column:1/-1">${alumnos.length?'No encontramos alumnos asignados a tu correo. Revisa que sea tu correo institucional o escribe a la coordinación (diana.chapa@udem.edu).':'Cargando alumnos…'}</div>`;return}
+  $('#cards').innerHTML=items.map(({a,rol})=>{const st=rol?statusOf(a,rol):['pend',isOwner?'Elige el rol a capturar':'Pendiente'];
+    return `<button type="button" class="card" data-al="${esc(a.id)}" aria-pressed="${a.id===state.alumno}"><span class="av" aria-hidden="true">${esc(initials(a.nombre))}</span>
+      <span class="nm">${esc(a.nombre)}</span><span class="meta">${esc(a.programa)}${a.proyecto?' · '+esc(a.proyecto):''}</span>
+      <span class="tags">${rol?`<span class="tag role">${ROLES[rol].n}</span>`:''}<span class="tag ${st[0]}">${st[1]}</span></span></button>`}).join('');
+  $('#cards').querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>pickStudent(c.dataset.al)));
+}
+function pickStudent(id){const a=alumnos.find(x=>x.id===id);if(!a)return;
+  state.prog=a.programa;$('#prog').value=a.programa;fillAlumnos();state.alumno=id;$('#alumno').value=id;
+  if(isOwner){const r=myRole(a);state.rol=(r&&r!=='coord')?r:state.rol}
+  applyRoleLock();saveSel();loadCombo();renderCards();
+  $('#roleWrap').hidden=!isOwner;
+  const nm=k=>esc(a[k+'Nombre']||a[k]||'—');
+  $('#picked').hidden=false;$('#picked').innerHTML=`<b>${esc(a.nombre)}</b> · ${esc(a.programa)} · ${state.etapa==='mt'?'Medio término':'Disertación'}<br><span class="muted">Comité: Asesor(a) ${nm('asesor')} · Sinodal 1 ${nm('sinodal1')} · Sinodal 2 ${nm('sinodal2')}</span>`;
+  setTimeout(()=>{const t=$('#picked');if(t)t.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})},60);
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{state.etapa=b.dataset.et;$('#etapa').value=state.etapa;saveSel();if(state.alumno)pickStudent(state.alumno);else{loadCombo();renderCards()}}));
+// saludo en vivo en la tarjeta de acceso
+function updateHello(){const v=$('#email').value.trim();const box=$('#hello');
+  if(!v){box.dataset.state='';$('#helloAv').textContent='?';$('#helloTxt').textContent='Escribe tu correo y te mostraremos a los alumnos de tu comité.';return}
+  const valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);const me=valid?whoAmI(v):null;
+  if(me){box.dataset.state='ok';$('#helloAv').textContent=personInitials(me);const n=me.list.length;
+    $('#helloTxt').innerHTML=`<b>¡Hola, ${esc(me.short)}!</b><br>${n?`Tienes ${n} ${n===1?'alumno':'alumnos'} en tu comité: ${me.list.slice(0,3).map(x=>esc(x.a.nombre.split(' ')[0])+' ('+ROLES[x.rol].n+')').join(', ')}${n>3?'…':''}.`:'Entras como coordinación.'}`}
+  else if(valid&&alumnos.length){box.dataset.state='warn';$('#helloAv').textContent='?';$('#helloTxt').textContent='No encontramos este correo en ningún comité. Revisa que sea tu correo institucional.'}
+  else{box.dataset.state='';$('#helloAv').textContent='@';$('#helloTxt').textContent=valid?'Buscando tu comité…':'Sigue escribiendo tu correo…'}}
+$('#email').addEventListener('input',updateHello);
+for(const id of ['#navEval','#cardEval','#ctaEval'])$(id).addEventListener('click',e=>{e.preventDefault();$('#loginForm').scrollIntoView({block:'center'});$('#email').focus()});
+$('#domains').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{const i=$('#email');i.value=i.value.split('@')[0].trim()+b.dataset.dom;updateHello();i.focus()}));
+function applyRoleLock(){
+  const a=alumnos.find(x=>x.id===state.alumno); const r=myRole(a);
+  if(!isOwner){state.rol=(r&&r!=='coord')?r:'';}
+  else if(r&&r!=='coord'&&!state.rol)state.rol=r;
+  document.querySelectorAll('input[name=rol]').forEach(x=>{x.checked=x.value===state.rol;x.disabled=!isOwner});
+  $('#rolLock').textContent=isOwner?'· como coordinación puedes elegir el rol':'· asignado por tu correo, no se puede cambiar';
+}
+function pickProgForEmail(){if(isOwner)return;const progs=Object.keys(RUB).filter(p=>alumnos.some(a=>a.programa===p&&myRole(a)));if(progs.length&&!progs.includes(state.prog)){state.prog=progs[0];$('#prog').value=state.prog}}
+function fillAlumnos(){pickProgForEmail();
+  const list=alumnos.filter(a=>a.programa===state.prog).sort((a,b)=>a.nombre.localeCompare(b.nombre));
+  const opt=a=>{const r=myRole(a);return `<option value="${esc(a.id)}">${esc(a.nombre)}${r?' · '+(r==='coord'?'Coordinación':ROLES[r].n):''}</option>`};
+  const mine=list.filter(myRole), rest=list.filter(a=>!myRole(a));
+  if(!isOwner){$('#alumno').innerHTML='<option value="">Selecciona…</option>'+mine.map(opt).join('')+(mine.length?'':'<option value="" disabled>No estás en ningún comité de este programa</option>');}
+  else $('#alumno').innerHTML='<option value="">Selecciona…</option>'+(mine.length?`<optgroup label="Tus alumnos">${mine.map(opt).join('')}</optgroup><optgroup label="Otros alumnos">${rest.map(opt).join('')}</optgroup>`:list.map(opt).join(''))+(list.length?'':'<option value="" disabled>Sin alumnos en este programa</option>');
+  if([...$('#alumno').options].some(o=>o.value&&o.value===state.alumno))$('#alumno').value=state.alumno;else state.alumno='';
+  applyRoleLock();
+}
+
+// ---------- login
+function login(email){state.email=email.trim().toLowerCase();setTimeout(fillAlumnos,0);ls.set('pif-email',state.email);$('#whoEmail').textContent=state.email;document.body.classList.add('in');$('#evalBody').hidden=false;$('#view-about').hidden=$('#tab-about').getAttribute('aria-selected')!=='true';restoreSel();renderForm();renderCards();enforceAccess();window.scrollTo(0,0)}
+let booted=false;
+function registered(email){const me=whoAmI(email);return !!(me&&me.list.length)}
+$('#loginForm').addEventListener('submit',e=>{e.preventDefault();const v=$('#email').value.trim();const err=$('#loginErr');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){err.textContent='Escribe un correo válido, por ejemplo nombre@udem.edu.';err.hidden=false;return}
+  if(booted&&!isOwner&&alumnos.length&&!registered(v)){err.textContent='Este correo no está registrado como asesor(a) o sinodal de ningún alumno. Si crees que es un error, escribe a diana.chapa@udem.edu.';err.hidden=false;return}
+  err.hidden=true;login(v)});
+// Solo asesores y sinodales registrados pueden entrar; la coordinación (dueña de la página) siempre puede.
+function enforceAccess(){
+  if(!booted)return;
+  const me=whoAmI(state.email||'');const asesorDe=me?me.list.some(x=>x.rol==='asesor'):false;
+  $('#tab-res').hidden=!isOwner&&!asesorDe;
+  if(state.email&&!isOwner&&alumnos.length&&!registered(state.email)){
+    const bad=state.email;$('#logout').click();$('#email').value=bad;updateHello();
+    const err=$('#loginErr');err.textContent='Este correo no está registrado como asesor(a) o sinodal de ningún alumno. Si crees que es un error, escribe a diana.chapa@udem.edu.';err.hidden=false}
+  if($('#tab-res').hidden&&!$('#view-res').hidden)$('#tab-eval').click();
+}
+$('#logout').addEventListener('click',()=>{state.email=null;ls.del('pif-email');document.body.classList.remove('in');$('#view-about').hidden=false;$('#evalBody').hidden=true;$('#bar').hidden=true;window.scrollTo(0,0)});
+
+function restoreSel(){try{const s=JSON.parse(ls.get('pif-sel')||'{}');if(s.prog&&RUB[s.prog])state.prog=s.prog;if(s.etapa)state.etapa=s.etapa;if(s.rol&&isOwner)state.rol=s.rol;}catch(e){}
+  $('#prog').value=state.prog;$('#etapa').value=state.etapa;fillAlumnos()}
+function saveSel(){ls.set('pif-sel',JSON.stringify({prog:state.prog,etapa:state.etapa,rol:state.rol}))}
+$('#prog').addEventListener('change',e=>{state.prog=e.target.value;fillAlumnos();saveSel();loadCombo()});
+$('#etapa').addEventListener('change',e=>{state.etapa=e.target.value;saveSel();loadCombo()});
+$('#alumno').addEventListener('change',e=>{state.alumno=e.target.value;if(isOwner){const r=myRole(alumnos.find(a=>a.id===state.alumno));if(r&&r!=='coord')state.rol=r}applyRoleLock();loadCombo()});
+document.querySelectorAll('input[name=rol]').forEach(r=>r.addEventListener('change',()=>{if(!isOwner)return;state.rol=r.value;saveSel();loadCombo()}));
+
+// ---------- load existing / draft
+function showCommittee(){const a=alumnos.find(x=>x.id===state.alumno);if(!a){$('#committee').innerHTML='';return}
+  const nm=k=>esc(a[k+'Nombre']||a[k]||'—');let h=`Comité: <b>Asesor(a)</b> ${nm('asesor')} · <b>Sinodal 1</b> ${nm('sinodal1')} · <b>Sinodal 2</b> ${nm('sinodal2')}${a.coordinacionNombre?` · <b>Coordinación</b> ${esc(a.coordinacionNombre)}`:''}`;
+  const want=state.rol&&a[state.rol+'Email'];if(want&&want.toLowerCase()!==state.email)h+=`<div class="notice" style="margin-top:8px">El ${ROLES[state.rol].n} registrado para este alumno es ${esc(a[state.rol+'Nombre']||a[state.rol])} (${esc(want)}). Revisa tu rol o el correo con el que entraste.</div>`;
+  $('#committee').innerHTML=h}
+function loadCombo(){showCommittee();
+  state.niveles={};state.entregables={};state.obs={};state.nom={};
+  const ex=myItems[key()]||(isOwner?evals[key()]:null), note=$('#existing'); note.hidden=true;
+  if(state.alumno&&state.rol&&ex){
+    if(ex.email===state.email){state.niveles={...ex.niveles};state.entregables={...ex.entregables};state.obs={...ex.obs};state.nom={...(ex.nominacion||{})};note.hidden=false;note.dataset.kind='info';note.textContent=`Ya guardaste esta evaluación (${new Date(ex.updatedAt).toLocaleString('es-MX')}). Puedes corregirla y volver a guardar.`}
+    else{note.hidden=false;note.dataset.kind='';note.textContent=`${ex.email} ya registró la evaluación de ${ROLES[state.rol].n} para este alumno. Si guardas, la tuya la reemplaza. Revisa que elegiste el rol correcto.`}
+  } else { try{const d=JSON.parse(ls.get('pif-draft-'+key())||'null');if(d){state.niveles=d.niveles||{};state.entregables=d.entregables||{};state.obs=d.obs||{};state.nom=d.nom||{}}}catch(e){} }
+  renderForm();
+}
+function saveDraft(){if(state.alumno&&state.rol)ls.set('pif-draft-'+key(),JSON.stringify({niveles:state.niveles,entregables:state.entregables,obs:state.obs,nom:state.nom}))}
+
+// ---------- render rubric form
+function renderForm(){
+  const area=$('#rubricArea');
+  if(!state.alumno||!state.rol){area.innerHTML=`<div class="empty" style="margin-top:18px">${state.alumno&&!state.rol?'Tu correo no está registrado en el comité de este alumno. Revisa que entraste con tu correo institucional.':(isOwner?'Elige un alumno(a) y el rol a capturar para abrir la rúbrica.':'Toca la tarjeta de un alumno(a) para abrir su rúbrica.')}</div>`;$('#bar').hidden=true;return}
+  const R=RUB[state.prog].etapas[state.etapa];
+  let h=`<h2>1. Entregables</h2><div class="checks">`+R.entregables.map((e,i)=>`<label><input type="checkbox" data-ent="${i}" ${state.entregables[i]?'checked':''}> ${esc(e)}</label>`).join('')+`</div>`;
+  h+=`<h2>2. Rúbrica <span class="muted" style="font-size:13px;font-weight:400">· marca un nivel por criterio</span></h2>`;
+  for(const b of R.bloques){
+    const tot=b.criterios.reduce((s,c)=>s+c.peso,0);
+    h+=`<div class="blockhead"><span class="mark">${b.id}. ${esc(b.nombre)}</span><span class="pts" data-bpts="${b.id}">0.0 / ${tot}</span></div>`;
+    for(const c of b.criterios){
+      const v=state.niveles[c.id];
+      h+=`<div class="crit"><div class="crit-h"><div><b>${c.id}. ${esc(c.nombre)}</b> <span class="mark" style="font-size:11px">Peso ${c.peso}</span><span class="que">${esc(c.que)}</span></div><span class="score" data-cpts="${c.id}">${v!==undefined?fmt(c.peso*v/4):'—'} / ${c.peso}</span></div><div class="levels" role="radiogroup" aria-label="${esc(c.nombre)}">`;
+      h+=`<label class="lvl zero"><input type="radio" name="c-${c.id}" value="0" ${v===0?'checked':''}><span class="lh"><span class="box"></span>0 · No presentado</span></label>`;
+      [1,2,3,4].forEach(n=>{h+=`<label class="lvl"><input type="radio" name="c-${c.id}" value="${n}" ${v===n?'checked':''}><span class="lh"><span class="box"></span>${n} · ${LVL[n]}</span><span>${esc(c.d[4-n])}</span></label>`});
+      h+=`</div></div>`;
+    }
+  }
+  h+=`<h2>3. Observaciones</h2><div class="grid">`+R.cierre.map((t,i)=>`<label class="f" for="obs-${i}">${esc(t)}<textarea id="obs-${i}" data-obs="${i}">${esc(state.obs[i]||'')}</textarea></label>`).join('')+`</div>`;
+  if(state.etapa==='dis')h+=`<h2>4. Nominación a PIF Sobresaliente</h2><p class="muted" style="margin:0 0 8px">Si el proyecto destaca por su innovación, calidad y aportación, puedes nominarlo. Las nominaciones se turnan al Comité Directivo de Posgrados.</p>
+    <div class="checks"><label><input type="checkbox" id="nomSi" ${state.nom.si?'checked':''}> <b>Nomino este proyecto a PIF Sobresaliente</b></label></div>
+    <label class="f" for="nomJust" style="margin-top:10px" ${state.nom.si?'':'hidden'} id="nomJustWrap">Justificación de la nominación<textarea id="nomJust">${esc(state.nom.just||'')}</textarea></label>`;
+  area.innerHTML=h;
+  const ns=area.querySelector('#nomSi');if(ns){ns.addEventListener('change',()=>{state.nom.si=ns.checked;area.querySelector('#nomJustWrap').hidden=!ns.checked;saveDraft()});area.querySelector('#nomJust').addEventListener('input',e=>{state.nom.just=e.target.value;saveDraft()})}
+  area.querySelectorAll('.levels input').forEach(inp=>inp.addEventListener('change',()=>{state.niveles[inp.name.slice(2)]=+inp.value;saveDraft();updateScores()}));
+  area.querySelectorAll('[data-ent]').forEach(inp=>inp.addEventListener('change',()=>{state.entregables[inp.dataset.ent]=inp.checked;saveDraft()}));
+  area.querySelectorAll('[data-obs]').forEach(t=>t.addEventListener('input',()=>{state.obs[t.dataset.obs]=t.value;saveDraft()}));
+  $('#bar').hidden=$('#view-eval').hidden;
+  updateScores();
+}
+function updateScores(){
+  const R=RUB[state.prog].etapas[state.etapa];
+  for(const b of R.bloques){let s=0;for(const c of b.criterios){const v=state.niveles[c.id];const el=document.querySelector(`[data-cpts="${c.id}"]`);if(v!==undefined){s+=c.peso*v/4;el.textContent=`${fmt(c.peso*v/4)} / ${c.peso}`}}
+    const tot=b.criterios.reduce((a,c)=>a+c.peso,0);document.querySelector(`[data-bpts="${b.id}"]`).textContent=`${fmt(s)} / ${tot}`}
+  const sc=score(state.prog,state.etapa,state.niveles);
+  $('#barTotal').textContent=`${fmt(sc.t)} / 100`;
+  $('#barInfo').textContent=`${sc.n} de ${sc.of} criterios · ${ROLES[state.rol].n}`;
+  const [d,k]=sc.n===sc.of?dictamen(state.etapa,sc.t):['Faltan criterios','muted'];
+  $('#barState').innerHTML=`<span class="pill ${k}">${d}</span>`;
+  $('#save').disabled=!db||!canWrite||sc.n<sc.of;
+  $('#save').title=!db?'La base no está disponible en esta vista':sc.n<sc.of?'Marca un nivel en todos los criterios':'';
+}
+$('#save').addEventListener('click',async()=>{
+  const sc=score(state.prog,state.etapa,state.niveles); if(sc.n<sc.of||!db)return;
+  if(!isOwner&&myRole(alumnos.find(a=>a.id===state.alumno))!==state.rol){toast('Tu correo no corresponde a este rol');return}
+  const al=alumnos.find(a=>a.id===state.alumno);
+  const doc={programa:state.prog,etapa:state.etapa,alumnoId:state.alumno,alumnoNombre:al?al.nombre:'',rol:state.rol,email:state.email,uid:uid||null,
+    niveles:state.niveles,entregables:state.entregables,obs:state.obs,nominacion:state.etapa==='dis'?{si:!!state.nom.si,just:state.nom.si?(state.nom.just||''):''}:null,total:Math.round(sc.t*100)/100,updatedAt:new Date().toISOString()};
+  $('#save').disabled=true;
+  try{if(!uid)throw{code:'no_uid'};const items={...myItems,[key()]:doc};await db.doc('evals/'+uid).set({email:state.email,items,updatedAt:doc.updatedAt});myItems=items;ls.del('pif-draft-'+key());toast('Evaluación guardada');renderCards();}
+  catch(e){if(e&&e.code==='invalid_argument'){canWrite=false;note('Tu acceso a esta página es de solo lectura. Pide a la coordinación que te comparta la página como Editor para poder guardar.','')}else if(e&&e.code==='no_uid')toast('Inicia sesión en claude.ai para guardar');else toast('No se pudo guardar. Intenta de nuevo en unos segundos.')}
+  updateScores();
+});
+
+// ---------- results
+$('#rprog').addEventListener('change',renderResults);$('#retapa').addEventListener('change',renderResults);
+let openRow=null;
+function resSource(){if(isOwner)return evals;const m={};for(const it of Object.values(sharedRes))for(const k in (it.evals||{}))m[`${it.programa}-${it.etapa}-${it.alumnoId}-${k}`]={...it.evals[k],alumnoId:it.alumnoId,alumnoNombre:it.alumnoNombre,programa:it.programa,etapa:it.etapa};return m}
+function renderResults(){
+  const prog=$('#rprog').value, etapa=$('#retapa').value; const evals=resSource();
+  if(!isOwner){const mine=new Set(Object.values(sharedRes).filter(i=>i.programa===prog&&(etapa==='final'||i.etapa===etapa)).map(i=>i.alumnoId));
+    if(!mine.size){$('#resTable').innerHTML=`<div class="empty">Aquí verás los resultados de los alumnos de los que eres asesor(a), en cuanto guardes tu evaluación como asesor(a) y la coordinación abra la página. Los sinodales no ven resultados.</div>`;return}
+    return drawResults(prog,etapa,mine,evals)}
+  const ids=new Set(alumnos.filter(a=>a.programa===prog).map(a=>a.id));
+  Object.values(evals).forEach(e=>{if(e.programa===prog&&(etapa==='final'||e.etapa===etapa))ids.add(e.alumnoId)});
+  drawResults(prog,etapa,ids,evals)}
+function committee(prog,etapa,id,evals){const r={};for(const k in ROLES){const e=evals[`${prog}-${etapa}-${id}-${k}`];r[k]=e?score(prog,etapa,e.niveles).t:null}
+  const done=Object.values(r).filter(v=>v!==null).length;return{r,done,fin:done===3?Object.keys(ROLES).reduce((s,k)=>s+r[k]*ROLES[k].w,0):null}}
+function drawFinal(prog,ids,evals){
+  const rows=[...ids].map(id=>{const a=alumnos.find(x=>x.id===id);const name=a?a.nombre:(Object.values(evals).find(e=>e.alumnoId===id)?.alumnoNombre||id);
+    const mt=committee(prog,'mt',id,evals),dis=committee(prog,'dis',id,evals);const fin=mt.fin!==null&&dis.fin!==null?mt.fin*.4+dis.fin*.6:null;return{id,name,mt,dis,fin}}).sort((a,b)=>a.name.localeCompare(b.name));
+  let h=`<div class="tscroll"><table class="res"><thead><tr><th>Alumno(a)</th><th>Medio término · 40 %</th><th>Disertación · 60 %</th><th>Final del PIF</th><th>Sobre 10</th><th>Dictamen</th><th>PIF Sobresaliente</th></tr></thead><tbody>`;
+  for(const x of rows){const st=v=>v.fin!==null?fmt(v.fin):`<span class="muted">${v.done}/3</span>`;
+    const [d,k]=x.fin!==null?dictamen('dis',x.fin):[x.mt.fin===null?'Falta medio término':'Falta disertación','muted'];
+    h+=`<tr><td><b>${esc(x.name)}</b></td><td class="num">${st(x.mt)}</td><td class="num">${st(x.dis)}</td><td class="num"><b>${x.fin!==null?fmt(x.fin):'—'}</b></td><td class="num">${x.fin!==null?fmt(x.fin/10):'—'}</td><td><span class="pill ${k}">${d}</span></td><td>${(()=>{const n=Object.keys(ROLES).filter(r=>evals[`${prog}-dis-${x.id}-${r}`]?.nominacion?.si).length;return n?`<span class="pill warn">★ ${n} de 3 nominan</span>`:'<span class="muted">—</span>'})()}</td></tr>`}
+  $('#resTable').innerHTML=h+'</tbody></table></div><p class="formula">«2/3» indica cuántos de los tres evaluadores han guardado esa etapa. Para ver el detalle por criterio, elige Medio término o Disertación en Vista.</p>';
+}
+function drawResults(prog,etapa,ids,evals){
+  if(etapa==='final')return drawFinal(prog,ids,evals);
+  if(!ids.size){$('#resTable').innerHTML=`<div class="empty">Aún no hay alumnos ni evaluaciones de ${prog}. Agrega alumnos en la pestaña Alumnos; cuando los profesores guarden sus rúbricas, el cálculo aparece aquí.</div>`;return}
+  const rows=[...ids].map(id=>{const a=alumnos.find(x=>x.id===id);const name=a?a.nombre:(Object.values(evals).find(e=>e.alumnoId===id)?.alumnoNombre||id);
+    const r={};for(const k in ROLES){const e=evals[`${prog}-${etapa}-${id}-${k}`];r[k]=e?score(prog,etapa,e.niveles).t:null}
+    const done=Object.values(r).filter(v=>v!==null).length;const fin=done===3?Object.keys(ROLES).reduce((s,k)=>s+r[k]*ROLES[k].w,0):null;return{id,name,proy:a?.proyecto||'',r,done,fin}}).sort((a,b)=>a.name.localeCompare(b.name));
+  const nomCount=id=>Object.keys(ROLES).filter(k=>evals[`${prog}-dis-${id}-${k}`]?.nominacion?.si).length;
+  const showNom=etapa==='dis';
+  let h=`<div class="tscroll"><table class="res"><thead><tr><th>Alumno(a)</th><th>Asesor 50 %</th><th>Sinodal 1 25 %</th><th>Sinodal 2 25 %</th><th>Final</th><th>Dictamen</th>${showNom?'<th>PIF Sobresaliente</th>':''}</tr></thead><tbody>`;
+  for(const x of rows){
+    const [d,k]=x.fin!==null?dictamen(etapa,x.fin):[`Faltan ${3-x.done} de 3`, 'muted'];
+    h+=`<tr class="main" data-id="${esc(x.id)}" tabindex="0"><td><b>${esc(x.name)}</b>${x.proy?`<br><span class="muted">${esc(x.proy)}</span>`:''}</td>`+Object.keys(ROLES).map(k=>`<td class="num">${x.r[k]!==null?fmt(x.r[k]):'<span class="muted">—</span>'}</td>`).join('')+`<td class="num"><b>${x.fin!==null?fmt(x.fin):'—'}</b></td><td><span class="pill ${k}">${d}</span></td>${showNom?`<td>${nomCount(x.id)?`<span class="pill warn">★ ${nomCount(x.id)} de 3 nominan</span>`:'<span class="muted">—</span>'}</td>`:''}</tr>`;
+    if(openRow===x.id)h+=`<tr class="detail"><td colspan="${showNom?7:6}">${detail(prog,etapa,x.id)}</td></tr>`;
+  }
+  $('#resTable').innerHTML=h+'</tbody></table></div>';
+  $('#resTable').querySelectorAll('tr.main').forEach(tr=>{const f=()=>{openRow=openRow===tr.dataset.id?null:tr.dataset.id;renderResults()};tr.addEventListener('click',f);tr.addEventListener('keydown',e=>{if(e.key==='Enter')f()})});
+}
+function detail(prog,etapa,id){
+  const evals=resSource(); const R=RUB[prog].etapas[etapa];const ev=Object.keys(ROLES).map(k=>evals[`${prog}-${etapa}-${id}-${k}`]);
+  let h=`<div style="overflow-x:auto"><table><thead><tr><th>Criterio</th><th>Peso</th>${Object.keys(ROLES).map((k,i)=>`<th>${ROLES[k].n}${ev[i]?`<br><span style="text-transform:none;font-weight:400">${esc(ev[i].email)}</span>`:''}</th>`).join('')}</tr></thead><tbody>`;
+  for(const c of R.bloques.flatMap(b=>b.criterios))h+=`<tr><td>${c.id}. ${esc(c.nombre)}</td><td class="num">${c.peso}</td>`+ev.map(e=>{const v=e?.niveles?.[c.id];return`<td class="num">${v!==undefined?`${v} · ${fmt(c.peso*v/4)}`:'—'}</td>`}).join('')+`</tr>`;
+  h+=`</tbody></table></div>`;
+  ev.forEach((e,i)=>{if(!e)return;const o=R.cierre.map((t,j)=>e.obs?.[j]?`<p style="margin:4px 0"><b>${esc(t)}:</b> ${esc(e.obs[j])}</p>`:'').join('')+(e.nominacion?.si?`<p style="margin:4px 0"><b>★ Nomina a PIF Sobresaliente:</b> ${esc(e.nominacion.just||'Sin justificación')}</p>`:'');if(o)h+=`<div style="margin-top:10px"><span class="mark">${ROLES[Object.keys(ROLES)[i]].n}</span>${o}</div>`});
+  return h;
+}
+
+// ---------- alumnos
+function renderAlumnos(){
+  if(!alumnos.length){$('#aluList').innerHTML='<div class="empty">Todavía no hay alumnos. Agrégalos con el formulario de abajo; aparecerán en la lista de cada programa.</div>';return}
+  const rows=[...alumnos].sort((a,b)=>(a.programa+a.nombre).localeCompare(b.programa+b.nombre));
+  $('#aluList').innerHTML=`<div class="tscroll"><table><thead><tr><th>Programa</th><th>Nombre</th><th>Matrícula</th><th>Proyecto</th><th>Asesor(a)</th><th>Sinodal 1</th><th>Sinodal 2</th><th></th></tr></thead><tbody>`+rows.map(a=>`<tr><td>${esc(a.programa)}</td><td>${esc(a.nombre)}</td><td class="num">${esc(a.matricula||'')}</td><td>${esc(a.proyecto||'')}</td>${['asesor','sinodal1','sinodal2'].map(k=>`<td>${esc(a[k+'Nombre']||a[k]||'')}${a[k+'Email']?`<br><span class="muted">${esc(a[k+'Email'])}</span>`:''}</td>`).join('')}<td><button class="btn" data-del="${esc(a.id)}" type="button">Quitar</button></td></tr>`).join('')+`</tbody></table></div>`;
+  $('#aluList').querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',async()=>{
+    if(b.dataset.confirm!=='1'){b.dataset.confirm='1';b.textContent='¿Confirmar?';setTimeout(()=>{b.dataset.confirm='';b.textContent='Quitar'},3000);return}
+    try{await db.collection('alumnos').doc(b.dataset.del).delete();toast('Alumno quitado')}catch(e){toast('No se pudo quitar')}}));
+}
+$('#aluForm').addEventListener('submit',async e=>{e.preventDefault();if(!db){toast('La base no está disponible en esta vista');return}
+  const a={nombre:$('#a-nombre').value.trim(),matricula:$('#a-mat').value.trim(),proyecto:$('#a-proy').value.trim(),programa:$('#a-prog').value,asesor:$('#a-ases').value.trim(),sinodal1:$('#a-s1').value.trim(),sinodal2:$('#a-s2').value.trim()};
+  if(!a.nombre)return; const id=slug(a.programa+'-'+a.nombre);
+  try{await db.collection('alumnos').doc(id).set(a);e.target.reset();toast('Alumno agregado')}catch(err){toast(err?.code==='invalid_argument'?'Tu acceso es de solo lectura':'No se pudo agregar')}});
+
+function note(t,kind){const n=$('#dbnote');n.hidden=!t;n.textContent=t||'';n.dataset.kind=kind||''}
+
+
+// Cuenta regresiva de la portada
+(function(){const now=new Date();const day=d=>Math.ceil((d-new Date(now.getFullYear(),now.getMonth(),now.getDate()))/864e5);
+  const mt0=new Date(2026,9,12),mt1=new Date(2026,9,17),d0=new Date(2026,11,3),d1=new Date(2026,11,9);let n,t;
+  if(now<mt0){n=day(mt0);t=n===1?'día para el medio término':'días para el medio término'}
+  else if(now<=new Date(2026,9,17,23,59)){n='Hoy';t='semana de medio término (12–17 oct)'}
+  else if(now<d0){n=day(d0);t=n===1?'día para la disertación':'días para la disertación'}
+  else if(now<=new Date(2026,11,9,23,59)){n='Hoy';t='semana de disertaciones (3–9 dic)'}
+  else{n='✓';t='Evaluaciones del periodo concluidas'}
+  $('#countN').textContent=n;$('#countT').textContent=t})();
+
+// ---------- boot
+const saved=ls.get('pif-email'); if(saved){$('#email').value=saved;}
+restoreSel(); renderForm();
+(async()=>{
+  const cl=window.claude;
+  db=cl?await cl.use('db'):null;
+  const user=cl?await cl.use('user'):null;
+  if(user){try{isOwner=await user.isOwner();uid=await user.id();const w=await user.can('data.write');if(w===false){canWrite=false}}catch(e){}
+    if(!saved){try{const m=await user.me();if(m?.email)$('#email').value=m.email}catch(e){}}}
+  if(!db){note('Las calificaciones no se pueden guardar en esta vista. Abre la página desde claude.ai con tu sesión iniciada. Puedes llenar la rúbrica y ver el puntaje, pero no se guardará.','');updateScoresSafe();return}
+  note(canWrite?'':'Tienes acceso de solo lectura: puedes ver resultados, pero no guardar evaluaciones. Pide que te compartan la página como Editor.',canWrite?'info':'');
+  db.collection('alumnos').onSnapshot(s=>{alumnos=s.docs.map(d=>({id:d.id,...d.data()}));fillAlumnos();renderCards();updateHello();enforceAccess();if(!$('#view-alu').hidden)renderAlumnos();if(!$('#view-res').hidden)renderResults()},err=>note('Se perdió la conexión con la lista de alumnos. Recarga la página.',''));
+  if(uid)db.doc('evals/'+uid).onSnapshot(s=>{myItems=(s.exists&&s.data().items)||{};renderCards()},()=>{});
+  if(isOwner){
+    db.collection('evals').onSnapshot(s=>{evals={};s.docs.forEach(d=>{const it=d.data().items||{};for(const k in it){const e={...it[k],uid:d.id};const prev=evals[k];if(!prev||prev.updatedAt<e.updatedAt)evals[k]=e}});if(!$('#view-res').hidden)renderResults();syncAsesores()},err=>note('Se perdió la conexión con las calificaciones. Recarga la página.',''));
+    db.collection('resultados').onSnapshot(s=>{lastSynced={};s.docs.forEach(d=>lastSynced[d.id]=JSON.stringify(d.data().items||{}))},()=>{});
+  } else if(uid){
+    db.doc('resultados/'+uid).onSnapshot(s=>{sharedRes=(s.exists&&s.data().items)||{};if(!$('#view-res').hidden)renderResults()},()=>{});
+  }
+  $('#tab-res').textContent=isOwner?'Resultados':'Mis resultados (asesor)';
+  booted=true;enforceAccess();
+  $('#tab-alu').hidden=!isOwner;
+  fillAlumnos();
+  updateScoresSafe();
+})();
+// La coordinación (dueña de la página) envía a cada asesor los resultados de sus alumnos, a su espacio privado.
+let syncT=null;
+function syncAsesores(){clearTimeout(syncT);syncT=setTimeout(async()=>{
+  const byUid={};
+  for(const e of Object.values(evals)){if(e.rol!=='asesor'||!e.uid)continue;
+    const base=`${e.programa}-${e.etapa}-${e.alumnoId}`;const a=alumnos.find(x=>x.id===e.alumnoId);
+    if(a?.asesorEmail&&a.asesorEmail.toLowerCase()!==(e.email||'').toLowerCase())continue; // solo el asesor registrado recibe resultados
+    const item={programa:e.programa,etapa:e.etapa,alumnoId:e.alumnoId,alumnoNombre:e.alumnoNombre||a?.nombre||'',evals:{}};
+    for(const k in ROLES){const ev=evals[`${base}-${k}`];if(ev)item.evals[k]={email:ev.email,niveles:ev.niveles,obs:ev.obs||{},nominacion:ev.nominacion||null,updatedAt:ev.updatedAt}}
+    (byUid[e.uid]=byUid[e.uid]||{})[base]=item}
+  for(const u in byUid){const js=JSON.stringify(byUid[u]);if(lastSynced[u]===js)continue;
+    try{await db.doc('resultados/'+u).set({items:byUid[u],updatedAt:new Date().toISOString()});lastSynced[u]=js}catch(err){}}
+},1500)}
+function updateScoresSafe(){if(state.alumno&&state.rol)updateScores()}
+if(saved)login(saved);
+</script>
+
+<script>
+// Versión pública (GitHub Pages): la evaluación se hace en claude.ai, donde se guardan las calificaciones.
+(function(){
+  if(window.claude) return;
+  var URL='https://claude.ai/artifact/95vjqJqRRfgStBFmhpU7Yx';
+  var form=document.getElementById('loginForm');
+  if(form){
+    var card=document.createElement('div');card.className='lp-access';
+    card.innerHTML='<div class="hello" data-state="ok"><span class="av" aria-hidden="true">✓</span><p><b>La evaluación se hace en la página segura de claude.ai.</b><br>Entra con tu cuenta y tu correo institucional; ahí solo verás a los alumnos de tu comité.</p></div>'+
+      '<a class="go" href="'+URL+'" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex">Ir a la evaluación <span aria-hidden="true">→</span></a>';
+    form.replaceWith(card);
+  }
+  ['navEval','ctaEval','cardEval'].forEach(function(id){
+    var el=document.getElementById(id); if(!el) return;
+    var c=el.cloneNode(true); c.href=URL; c.target='_blank'; c.rel='noopener'; el.replaceWith(c);
+  });
+})();
+</script>
+
+</body>
+</html>
